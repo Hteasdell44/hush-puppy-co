@@ -1,0 +1,43 @@
+#nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 10vh;
+}
+
+#hero-container {
+    height: 100vh;
+    background-color: #52B6FF;
+}
+
+
+#logo {
+    display: block;
+    width: 25vw;
+    min-width: 200px;
+}
+
+li {
+    font-size: 1.2vw;
+}
+
+#shopping-cart-button {
+    margin-right: 1vw;
+}
+
+#profile-icon {
+    margin-right: 1.5vw;
+}
+
+@media screen and (max-width: 992px) {
+    #profile-icon {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #logo {
+        position: absolute;
+        left: 38%;
+    }
+}
