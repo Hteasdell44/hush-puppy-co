@@ -1,10 +1,8 @@
 import "../css/Home.css";
-import Nav from "../components/Nav"
-import Hero from "../components/Hero";
-import Collection from "../components/Collection";
-import Testimonials from "../components/Testimonials";
-import ListForm from "../components/ListForm";
-import Footer from "../components/Footer";
+import Hero from "../components/Home/Hero";
+import Collection from "../components/Home/Collection";
+import Testimonials from "../components/Home/Testimonials";
+import ListForm from "../components/Home/ListForm";
 
 export default function Home() {
 
@@ -12,12 +10,10 @@ export default function Home() {
         
         <div>
 
-            <Nav />
             <Hero />
             <Collection />
             <Testimonials />
             <ListForm />
-            <Footer />
 
         </div>
         

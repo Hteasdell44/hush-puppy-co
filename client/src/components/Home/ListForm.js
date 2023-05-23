@@ -1,4 +1,5 @@
-import GenericPup from "../utils/img/generic-pup.jpeg";
+import GenericPup from "../../utils/img/generic-pup.jpeg";
+
 export default function ListForm() {
     return (
         <div id="list-form-container">

@@ -1,6 +1,6 @@
-import Logo from "../utils/img/thpc-logo.png";
-import ShoppingCartIcon from "../utils/img/shopping-cart-icon.png";
-import ProfileIcon from "../utils/img/profile-icon.png";
+import Logo from "../../utils/img/thpc-logo.png";
+import ShoppingCartIcon from "../../utils/img/shopping-cart-icon.png";
+import ProfileIcon from "../../utils/img/profile-icon.png";
 
 export default function Nav() {
 
@@ -31,7 +31,7 @@ export default function Nav() {
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">About</a>
+                                    <a class="nav-link" href="/about">About</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -42,7 +42,10 @@ export default function Nav() {
 
                         </div>
 
-                        <img id="logo" src={Logo} class="img-fluid" alt="Responsive image" />
+
+                        <a id="logo-link" href="/">
+                            <img id="logo" src={Logo} class="img-fluid" alt="Responsive image" />
+                        </a>
                         
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
