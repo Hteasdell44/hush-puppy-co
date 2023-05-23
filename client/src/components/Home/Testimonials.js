@@ -1,4 +1,4 @@
-import PlaceholderImage from "../utils/img/placeholder-image.png"
+import PlaceholderImage from "../../utils/img/placeholder-image.png"
 export default function Testimonials() {
     return (
         <div id="testimonials-container">

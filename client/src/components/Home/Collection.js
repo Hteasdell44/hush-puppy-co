@@ -1,5 +1,5 @@
-import CalmTreatsPhoto from "../utils/img/calm-treats.jpeg";
-import CalmToyPhoto from "../utils/img/calm-toy.jpeg"
+import CalmTreatsPhoto from "../../utils/img/calm-treats.jpeg";
+import CalmToyPhoto from "../../utils/img/calm-toy.jpeg"
 
 export default function Collection() {
 

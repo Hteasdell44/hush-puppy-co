@@ -1,0 +1,65 @@
+#nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 10vh;
+    border: 5px solid black;
+    z-index: 1;
+}
+
+#footer-container {
+    background-color: #52B6FF;
+    width: 100vw;
+    height: 7vh;
+    margin-top: 2.8vh;
+}
+
+#footer-container ul {
+    text-align: center;
+    padding-top: 2vh;
+    
+}
+
+#footer-container ul li {
+    font-size: 4vw;
+    display: inline;
+    margin-right: 3vw;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+
+@media screen and (min-width: 992px) {
+    #logo-link{
+        margin-top: -9vh;
+    }
+    #logo {
+        position: absolute;
+        left: 40%;
+        width: 23vw;
+    }
+
+    #footer-container ul li {
+        font-size: 1vw;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    #logo {
+        width: 35vw;
+    }
+
+    #footer-container ul li {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 390px) {
+
+    #footer-container ul li {
+        font-size: 3vw;
+    }
+}

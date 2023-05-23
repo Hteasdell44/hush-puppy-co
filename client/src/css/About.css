@@ -1,0 +1,50 @@
+#content-container {
+    width: 100vw;
+    height: 85vh;
+}
+
+#content-container h2 {
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+#text-container {
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    background-color: #52B6FF;
+    border-radius: 10px;
+}
+
+#text-container p {
+    font-size: 4.8vw;
+    text-align: center;
+    color: white;
+    padding-top: 5vh;
+    padding-right: 3vw;
+    padding-left: 3vw;
+
+}
+
+#text-container img {
+    width: 45vw;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 900px) {
+    #text-container p {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 1140px) {
+    #text-container p {
+        font-size: 2vw;
+    }
+    #text-container img {
+        width: 20vw;
+    }
+}
