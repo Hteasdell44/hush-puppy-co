@@ -3,13 +3,14 @@
     top: 0;
     width: 100vw;
     height: 10vh;
+    border: 5px solid black;
+    z-index: 1;
 }
 
 #hero-container {
     height: 100vh;
     background-color: #52B6FF;
 }
-
 
 #logo {
     display: block;
@@ -35,9 +36,302 @@ li {
     }
 }
 
+#collection-container {
+    height: 90vh;
+    width: 100vw;
+    background-color: white;
+}
+
+#collection-container h2 {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+#collection-container .row {
+    width: 100vw;
+}
+
+.card-container {
+    margin-top: 5vh;
+}
+
+.card-container .card {
+    
+    margin-top: 5vh;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.card-container .card .btn {
+    
+    background-color: #52B6FF;
+    color: white;
+    border: none;
+}
+
+.card-container #card-one {
+    margin-right: 1vw;
+}
+
+.card-container .card .card-body h5 {
+    
+    margin-top: 3vh;
+}
+
+.card-container .card .card-body img {
+    
+    width: 15vw;
+}
+
+#view-all-products-button {
+    background-color: #52B6FF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-top: 3vh;
+    width: 40vw;
+}
+
+#testimonials-container {
+    width: 100vw;
+    height: 95vh;
+    background-color: #52B6FF;
+}
+
+#testimonials-container h2 {
+    text-align: center;
+    padding-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+#testimonials-container .row {
+    margin-right: 0;
+}
+
+#testimonials-container .card {
+    margin-bottom: 5vh;
+    width: 85vw;
+    height: 12vh;
+}
+
+.testimonial-pic {
+    width: 8vw;
+    margin-right: 2vw;
+    margin-bottom: 1vh;
+}
+
+.testimonial-vertical-line {
+    width: 3px;
+    background-color: black;
+    height: 8vh;
+    margin-right: 2vw;
+}
+
+#list-form-container {
+    height: 91vh;
+    width: 100vw;
+}
+
+#list-form-container h2 {
+    text-align: center;
+    padding-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+#list-form-container form {
+    width: 80vw;
+    margin: 0 auto;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px gray;
+    padding: 3vh;
+    border-radius: 10px;
+}
+
+#list-form-container form label {
+    margin-bottom: 1vh;
+}
+
+#list-form-container form button {
+    width: 100%;
+    background-color: #52B6FF;
+    color: white;
+}
+
+#list-form-container form .form-control {
+    margin-bottom: 3vh;
+}
+
+#list-form-container img {
+    width: 80vw;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 4vh;
+    box-shadow: 5px 5px 5px gray;
+}
+
+#footer-container {
+    background-color: #52B6FF;
+    width: 100vw;
+    height: 7vh;
+    margin-top: 2.8vh;
+}
+
+#footer-container ul {
+    text-align: center;
+    padding-top: 2vh;
+    
+}
+
+#footer-container ul li {
+    font-size: 4vw;
+    display: inline;
+    margin-right: 3vw;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+/* Mobile Media Queries */
+
+@media screen and (max-width: 992px) {
+    .card-container {
+        margin-left: 3vw;
+        margin-top: -3vh;
+    }
+}
+
+/* Desktop Media Queries */
+
 @media screen and (min-width: 992px) {
+
     #logo {
         position: absolute;
-        left: 38%;
+        left: 40%;
+        width: 23vw;
+    }
+
+    #view-all-products-button {
+        margin-top: 6vh;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        margin-bottom: -5vh;
+    }
+    
+    #testimonials-container .card {
+        margin-top: 7vh;
+        margin-bottom: 5vh;
+        margin-right: 3vw;
+        width: 27vw;
+        display: flex;
+        height: 25vh;
+    }
+    
+    .testimonial-pic {
+        width: 10vw;
+        margin-right: 2vw;
+    }
+    
+    .testimonial-vertical-line {
+        width: 3px;
+        background-color: black;
+        height: 20vh;
+        margin-right: 2vw;
+    }
+
+    #testimonials-container .card .card-body p {
+        font-size: 1.25vw;
+        text-align: center;
+        width: 100%;
+        margin: auto;
+    }
+
+    #list-form-container img {
+        width: 25vw;
+    }
+
+    #footer-container ul li {
+        font-size: 1vw;
+    }
+
+
+}
+
+/* Tablet Media Queries */
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    #logo {
+        width: 35vw;
+    }
+
+    #view-all-products-button {
+
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+    }
+
+
+    #testimonials-container .card .card-body p {
+        font-size: 3vw;
+        text-align: center;
+        width: 100%;
+        margin: auto;
+    }
+
+    #list-form-container img {
+        width: 65vw;
+    }
+
+    #footer-container ul li {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (min-width: 550px) and (max-width: 992px) {
+    #collection-container {
+        height: 100vh;
+    }
+
+    #view-all-products-button {
+
+        margin-top: 2vh;
+    }
+}
+
+@media screen and (max-width: 390px) {
+
+
+    #footer-container ul li {
+        font-size: 3vw;
+    }
+
+    #list-form-container img {
+        width: 55vw;
+    }
+
+    #collection-container {
+        height: 105vh;
+    }
+
+    .card-container .card {
+    
+        height: 40vh;
+    }
+
+    .card-container .card .card-body h5 {
+    
+        font-size: 3vh;
+        margin-top: 2vh;
+    }
+
+    .card-container .card .card-body p {
+    
+        font-size: 2vh;
+    }
+
+    #testimonials-container .card .card-body p {
+        font-size: 3.5vw;
     }
 }
