@@ -4,6 +4,7 @@
 }
 
 #content-container h2 {
+    font-size: 6vw;
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
@@ -15,6 +16,7 @@
     margin: 0 auto;
     background-color: #52B6FF;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
 }
 
 #text-container p {
@@ -38,6 +40,15 @@
     #text-container p {
         font-size: 4vw;
     }
+    #content-container h2 {
+        font-size: 2.65vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #text-container img {
+        width: 30vw;
+    }
 }
 
 @media screen and (min-width: 1140px) {
@@ -46,5 +57,18 @@
     }
     #text-container img {
         width: 20vw;
+    }
+}
+
+@media screen and (max-height: 720px) {
+    #text-container img {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+    #text-container img {
+        display: none;
     }
 }
