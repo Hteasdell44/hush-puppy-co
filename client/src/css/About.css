@@ -4,7 +4,7 @@
 }
 
 #content-container h2 {
-    font-size: 6vw;
+    font-size: xx-large;
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
@@ -39,9 +39,6 @@
 @media screen and (min-width: 900px) {
     #text-container p {
         font-size: 4vw;
-    }
-    #content-container h2 {
-        font-size: 2.65vw;
     }
 }
 

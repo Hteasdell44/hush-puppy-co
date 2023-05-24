@@ -23,6 +23,10 @@ export default function Nav() {
                             <ul class="navbar-nav me-auto mb-200 mb-lg-0">
 
                                 <li class="nav-item active">
+                                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                                </li>
+
+                                <li class="nav-item active">
                                     <a class="nav-link" aria-current="page" href="#">Shop</a>
                                 </li>
 

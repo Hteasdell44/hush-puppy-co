@@ -1,11 +1,63 @@
 #contact-container {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
+
+}
+
+form {
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 7vh;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 3vh;
+    box-shadow: 5px 5px 5px gray;
+}
+
+form label {
+    font-size: large;
+}
+
+form button {
+    width: 100%;
+    background-color: #52B6FF !important;
+    box-shadow: 5px 5px 5px gray;
+}
+
+form textarea {
+    height: 40vh;
 }
 
 #contact-container h2 {
-    font-size: 3vw;
+    font-size: xx-large;
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
+}
+
+h3, h4 {
+    text-align: center;
+}
+
+#address-box {
+    
+    display: block;
+    width: 20vw;
+    margin: 0 auto;
+    margin-top: 1.5vh;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+
+}
+
+@media screen and (max-height: 740px) {
+    form {
+        height: 75vh;
+    }
+
+    form textarea {
+        height: 23vh;
+    }
 }
