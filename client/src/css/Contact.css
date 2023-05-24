@@ -1,0 +1,11 @@
+#contact-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+#contact-container h2 {
+    font-size: 3vw;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}

@@ -6,9 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./css/App.css";
 
-import Nav from "./components/Reused/Nav"
-import Footer from "./components/Reused/Footer"
+import Nav from "./components/Reused/Nav";
+import Footer from "./components/Reused/Footer";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 document.title = "Hush Puppy Co.";
 
@@ -46,6 +47,8 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         
                         <Route path="/about" element={<About />} />
+
+                        <Route path="/contact" element={<Contact />} />
 
                     </Routes>
                 </Router>
