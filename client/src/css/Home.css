@@ -3,11 +3,7 @@
     background-color: #52B6FF;
 }
 
-#logo {
-    display: block;
-    width: 25vw;
-    min-width: 200px;
-}
+
 
 li {
     font-size: 1.2vw;
@@ -111,6 +107,7 @@ li {
 
 .testimonial-pic {
     width: 8vw;
+    max-width: 220px;
     margin-right: 2vw;
     margin-bottom: 1vh;
 }
@@ -158,6 +155,7 @@ li {
 
 #list-form-container img {
     width: 80vw;
+    max-width: 400px;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
@@ -172,6 +170,12 @@ li {
         margin-left: 3vw;
         margin-top: -3vh;
     }
+
+    .testimonial-pic {
+        margin-left: -1vh;
+    }
+
+
 }
 
 /* Desktop Media Queries */
@@ -213,9 +217,9 @@ li {
         margin: auto;
     }
 
-    #list-form-container img {
+    /* #list-form-container img {
         width: 25vw;
-    }
+    } */
 
 }
 
@@ -237,9 +241,9 @@ li {
         margin: auto;
     }
 
-    #list-form-container img {
+    /* #list-form-container img {
         width: 65vw;
-    }
+    } */
 }
 
 @media screen and (min-width: 550px) and (max-width: 992px) {
@@ -255,16 +259,17 @@ li {
 }
 
 @media screen and (min-width: 992px) {
-    #list-form-container img {
+    /* #list-form-container img {
         width: 20vw;
-    }
+    } */
 }
 
 @media screen and (max-width: 390px) {
 
 
     #list-form-container img {
-        width: 55vw;
+        width: 38vw;
+        margin-top: -20vh;
     }
 
     #collection-container {
@@ -289,5 +294,15 @@ li {
 
     #testimonials-container .card .card-body p {
         font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #logo{
+        min-width: none;
+        width: 100px;
+        position: absolute;
+        top: 1vh;
+        left: 10vw;
     }
 }

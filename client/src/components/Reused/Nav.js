@@ -18,34 +18,36 @@ export default function Nav() {
                             <i class="fas fa-bars"></i>
                         </button>
 
-                        <div class="collapse navbar-collapse" id="navbarExample01">
+                        <div id="nav-links-container">
 
-                            <ul class="navbar-nav me-auto mb-200 mb-lg-0">
+                            <div class="collapse navbar-collapse" id="navbar-links">
 
-                                <li class="nav-item active">
-                                    <a class="nav-link" aria-current="page" href="/">Home</a>
-                                </li>
+                                <ul class="navbar-nav">
 
-                                <li class="nav-item active">
-                                    <a class="nav-link" aria-current="page" href="#">Shop</a>
-                                </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
-                                </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" aria-current="page" href="#">Shop</a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/about">About</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Blog</a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/contact">Contact Us</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/about">About</a>
+                                    </li>
 
-                            </ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/contact">Contact Us</a>
+                                    </li>
 
+                                </ul>
+
+                            </div>
                         </div>
-
 
                         <a id="logo-link" href="/">
                             <img id="logo" src={Logo} class="img-fluid" alt="Responsive image" />
