@@ -5,6 +5,16 @@
     height: 10vh;
     border: 5px solid black;
     z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 25vw;
+    display: block;
+    margin: 0 auto;
+    min-width: 200px;
+    
 }
 
 #footer-container {
@@ -36,14 +46,18 @@
 }
 
 @media screen and (min-width: 992px) {
-    
-    #logo-link{
-        margin-top: -9vh;
+
+    #logo-link {
+        text-align: center;
+        margin-left: -12vw;
     }
+
     #logo {
-        position: absolute;
-        left: 40%;
-        width: 23vw;
+        width: 25vw;
+        max-width: 270px;
+        display: block;
+        margin: 0 auto;
+        min-width: 200px;
     }
 
     #footer-container ul li {
@@ -54,12 +68,30 @@
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
 
+    #logo-link {
+        text-align: center;
+        margin-left: -28vw;
+    }
+
     #logo {
-        width: 35vw;
+        width: 25vw;
+        max-width: 270px;
+        display: block;
+        margin: 0 auto;
+        min-width: 200px;
     }
 
     #footer-container ul li {
         font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+
+    #logo-link {
+        text-align: center;
+        margin-left: -2vw;
     }
 }
 
