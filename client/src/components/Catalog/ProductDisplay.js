@@ -6,7 +6,6 @@ export default function ProductDisplay() {
 
     const { data } =  useQuery(ALL_PRODUCTS);
     const productList = data?.allProducts || [];
-    console.log(productList);
 
     return(
 
@@ -18,7 +17,7 @@ export default function ProductDisplay() {
 
                 {productList && productList.map((product) => (
 
-                    <a href="" className="col-10 col-md-5 col-xl-4 col-lg-4 product-card">
+                    <a className="col-10 col-md-5 col-xl-4 col-lg-4 product-card">
 
                         <div key={product._id}>
 
