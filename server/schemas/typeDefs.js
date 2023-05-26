@@ -1,32 +1,48 @@
 const { gql } = require('apollo-server-express');
 
-// GraphQL Queries Go Here
-
 const typeDefs = gql`
-type Thought {
+type User {
   _id: ID
-  thoughtText: String
-  thoughtAuthor: String
-  createdAt: String
-  comments: [Comment]!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  isAdmin: Boolean!
 }
 
-type Comment {
+type Product {
   _id: ID
-  commentText: String
-  createdAt: String
+  name: String!
+  price: Float!
+  imageLink: String!
+  description: String!
+  inventory: Int
+}
+
+type BlogPost {
+  _id: ID
+  title: String!
+  author: String!
+  postBody: String!
+  postDate: String
+}
+
+type Cart {
+  products: [Product]
 }
 
 type Query {
-  thoughts: [Thought]!
-  thought(thoughtId: ID!): Thought
+  specificUser(email: String!): User
+  allProducts: [Product]
+  allBlogPosts: [BlogPost]
 }
 
 type Mutation {
-  addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-  addComment(thoughtId: ID!, commentText: String!): Thought
-  removeThought(thoughtId: ID!): Thought
-  removeComment(thoughtId: ID!, commentId: ID!): Thought
+  createUser(firstName: String!, lastName: String!, email: String!, password: String!): User
+  createProduct(name: String!, price: Float!, imageLink: String!, description: String!, inventory: Int): Product
+  addProductToCart(cartId: ID!, productName: String!): Cart
+  removeProductFromCart(cartId: ID!, productName: String!): Cart
+  createBlogPost(title: String!, author: String!, postBody: String!, postedAt: String): BlogPost
 }
 `;
 
