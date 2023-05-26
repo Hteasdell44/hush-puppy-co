@@ -50,6 +50,10 @@ li {
     box-shadow: 5px 5px 5px gray;
 }
 
+.card-container .card:hover {
+    scale: 1.025;
+}
+
 .card-container .card .btn {
     
     background-color: #52B6FF;

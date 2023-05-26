@@ -25,6 +25,10 @@
     box-shadow: 5px 5px 5px gray;
 }
 
+.product-card:hover {
+    scale: 1.025;
+}
+
 
 #card-header {
     background-color: #52B6FF;
