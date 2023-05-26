@@ -1,0 +1,40 @@
+[
+    {
+        "name": "The Peaceful Playtime Mat",
+        "price": 17.99,
+        "imageLink": "linktoimage.com",
+        "description": "Another very lovely decription of another very lovely product.",
+        "inventory": 7
+    },
+
+    {
+        "name": "The Hush Puppy",
+        "price": 27.99,
+        "imageLink": "linktoimage.com",
+        "description": "Very lovely decription of very lovely product.",
+        "inventory": 37
+    },
+
+    {
+        "name": "Cozy Bed",
+        "price": 47.99,
+        "imageLink": "linktoimage.com",
+        "description": "Yet another very lovely decription of another very lovely product.",
+        "inventory": 71
+    },
+
+    {
+        "name": "Puppy Gate",
+        "price": 99.99,
+        "imageLink": "linktoimage.com",
+        "description": "This is a very sturdy gate. It's meant to keep busy dogs contained.",
+        "inventory": 21
+    },
+
+    {
+        "name": "Puppy Training 101",
+        "price": 149.99,
+        "imageLink": "linktoimage.com",
+        "description": "A sixteen hour course on training your pup. Comes with additional resources and exercises."
+      }
+]

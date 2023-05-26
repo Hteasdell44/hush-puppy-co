@@ -1,0 +1,36 @@
+[
+    {
+        "firstName": "Justin",
+        "lastName": "Gordon",
+        "email": "JustinG@gmail.com",
+        "password": "123Power789"
+    },
+
+    {
+        "firstName": "Jus",
+        "lastName": "Lopi",
+        "email": "Juslopi@ymail.com",
+        "password": "PowerBall89"
+    },
+
+    {
+        "firstName": "Darnold",
+        "lastName": "Myers",
+        "email": "BustinGame@gmail.com",
+        "password": "127WaysToWin"
+    },
+
+    {
+        "firstName": "Dustin",
+        "lastName": "Chatham",
+        "email": "DustinC@hotmail.com",
+        "password": "RowdyrThnU2"
+    },
+
+    {
+        "firstName": "Alex",
+        "lastName": "Lopez",
+        "email": "AlexGuerreraLopez@gmail.com",
+        "password": "PasPasSPas"
+    }
+]
