@@ -3,7 +3,7 @@
 
 ## Description
 
-The Hush Puppy Co. is a fully functional eCommerce website and blog developed with the MERN stack and GraphQL.
+The Hush Puppy Co. is a fully functional eCommerce website and blog developed with the MERN stack and GraphQL. This project was styled with Bootstrap. 
 
 ![Screenshot 2023-05-26 at 11 00 18 AM](https://github.com/Hteasdell44/hush-puppy-co/assets/48537443/84e89da0-b0ff-476b-96fd-9e2dad526a37)
 
