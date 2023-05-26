@@ -12,10 +12,8 @@ export default function Hero() {
                 <h5 class="mb-4">Click Below To View Our Products.</h5>
                 <a
                   class="btn btn-outline-light btn-lg m-2"
-                  href="https://www.youtube.com/watch?v=c9B4TPnak1A"
+                  href="/catalog"
                   role="button"
-                  rel="nofollow"
-                  target="_blank"
                 >Shop Now</a>
 
               </div>

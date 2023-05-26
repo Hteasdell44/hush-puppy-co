@@ -10,6 +10,8 @@ import Nav from "./components/Reused/Nav";
 import Footer from "./components/Reused/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Catalog from "./pages/Catalog";
+import Blog from "./pages/Blog";
 
 document.title = "Hush Puppy Co.";
 
@@ -49,6 +51,10 @@ const App = () => {
                         <Route path="/about" element={<About />} />
 
                         <Route path="/contact" element={<Contact />} />
+
+                        <Route path="/catalog" element={<Catalog />} />
+
+                        <Route path="/blog" element={<Blog />} />
 
                     </Routes>
                 </Router>
