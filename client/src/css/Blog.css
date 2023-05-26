@@ -1,0 +1,8 @@
+#blog-display-container {
+    width: 100vw;
+}
+
+#blog-display-container h2 {
+    margin-top: 15vh;
+    text-align: center;
+}

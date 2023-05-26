@@ -20,7 +20,7 @@
 }
 
 #text-container p {
-    font-size: 4.8vw;
+    font-size: x-large;
     text-align: center;
     color: white;
     padding-top: 5vh;
@@ -30,28 +30,20 @@
 }
 
 #text-container img {
-    width: 45vw;
+    width: 30vw;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
 }
 
-@media screen and (min-width: 900px) {
-    #text-container p {
-        font-size: 4vw;
-    }
-}
-
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 550px) {
     #text-container img {
-        width: 30vw;
+        display: none;
     }
 }
 
 @media screen and (min-width: 1140px) {
-    #text-container p {
-        font-size: 2vw;
-    }
+    
     #text-container img {
         width: 20vw;
     }
@@ -63,9 +55,14 @@
     }
 }
 
+@media screen and (max-width: 407px) {
+    #text-container p {
+        font-size: large;
+    }
+}
 
-@media screen and (min-width: 768px) and (max-width: 820px) {
-    #text-container img {
-        display: none;
+@media screen and (max-width: 407px) {
+    #text-container p {
+        font-size: large;
     }
 }

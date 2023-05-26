@@ -2,15 +2,23 @@
     {
         "name": "The Peaceful Playtime Mat",
         "price": 17.99,
-        "imageLink": "linktoimage.com",
+        "imageLink": "https://i.ibb.co/4PGhDtt/snuffle-mat.jpg",
         "description": "Another very lovely decription of another very lovely product.",
+        "inventory": 7
+    },
+
+    {
+        "name": "Calm Treats",
+        "price": 14.99,
+        "imageLink": "https://i.ibb.co/Dfw9CxS/calm-treats.jpg",
+        "description": "Once again, another very lovely decription of another very lovely product.",
         "inventory": 7
     },
 
     {
         "name": "The Hush Puppy",
         "price": 27.99,
-        "imageLink": "linktoimage.com",
+        "imageLink": "https://i.ibb.co/981Y6hj/calm-toy.webp",
         "description": "Very lovely decription of very lovely product.",
         "inventory": 37
     },
@@ -18,7 +26,7 @@
     {
         "name": "Cozy Bed",
         "price": 47.99,
-        "imageLink": "linktoimage.com",
+        "imageLink": "https://i.ibb.co/30Wm0JB/cozy-bed.jpg",
         "description": "Yet another very lovely decription of another very lovely product.",
         "inventory": 71
     },
@@ -26,15 +34,15 @@
     {
         "name": "Puppy Gate",
         "price": 99.99,
-        "imageLink": "linktoimage.com",
+        "imageLink": "https://i.ibb.co/nL79Yv0/puppy-gate.webp",
         "description": "This is a very sturdy gate. It's meant to keep busy dogs contained.",
         "inventory": 21
     },
 
     {
-        "name": "Puppy Training 101",
-        "price": 149.99,
-        "imageLink": "linktoimage.com",
+        "name": "Home Alone: Digital Guide",
+        "price": 19.99,
+        "imageLink": "https://i.ibb.co/pnnSwk0/Screenshot-2023-05-26-at-3-50-34-PM.png",
         "description": "A sixteen hour course on training your pup. Comes with additional resources and exercises."
       }
 ]

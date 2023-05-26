@@ -29,11 +29,11 @@ export default function Nav() {
                                     </li>
 
                                     <li class="nav-item active">
-                                        <a class="nav-link" aria-current="page" href="#">Shop</a>
+                                        <a class="nav-link" aria-current="page" href="/catalog">Shop</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Blog</a>
+                                        <a class="nav-link" href="/blog">Blog</a>
                                     </li>
 
                                     <li class="nav-item">
