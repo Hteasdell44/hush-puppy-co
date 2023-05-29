@@ -34,6 +34,7 @@ type Cart {
 type Query {
   specificUser(email: String!): User
   allProducts: [Product]
+  specificProduct(id: String!): Product
   allBlogPosts: [BlogPost]
 }
 

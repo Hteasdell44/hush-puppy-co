@@ -3,8 +3,6 @@
     background-color: #52B6FF;
 }
 
-
-
 li {
     font-size: 1.2vw;
 }
@@ -60,6 +58,7 @@ li {
     color: white;
     border: none;
     box-shadow: 5px 5px 5px gray;
+    margin-bottom: 2vh;
 }
 
 .card-container #card-one {
@@ -84,11 +83,17 @@ li {
     margin-top: 3vh;
     width: 40vw;
     box-shadow: 5px 5px 5px gray;
+    text-align: center;
+    text-decoration: none;
+}
+
+#view-all-products-button:hover {
+    scale: 1.025;
 }
 
 #testimonials-container {
     width: 100vw;
-    height: 95vh;
+    
     background-color: #52B6FF;
 }
 
@@ -124,7 +129,7 @@ li {
 }
 
 #list-form-container {
-    height: 91vh;
+
     width: 100vw;
 }
 
@@ -141,6 +146,7 @@ li {
     box-shadow: 5px 5px 5px gray;
     padding: 3vh;
     border-radius: 10px;
+    height: 100%;
 }
 
 #list-form-container form label {
@@ -153,17 +159,21 @@ li {
     color: white;
 }
 
+#list-form-container form button:hover {
+    scale: 1.025;
+}
+
 #list-form-container form .form-control {
     margin-bottom: 3vh;
 }
 
 #list-form-container img {
-    width: 80vw;
+    width: 50vw;
     max-width: 400px;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
-    margin-top: 4vh;
+    margin-top: 7vh;
     box-shadow: 5px 5px 5px gray;
 }
 
@@ -221,9 +231,9 @@ li {
         margin: auto;
     }
 
-    /* #list-form-container img {
+    #list-form-container img {
         width: 25vw;
-    } */
+    }
 
 }
 
@@ -245,9 +255,9 @@ li {
         margin: auto;
     }
 
-    /* #list-form-container img {
+    #list-form-container img {
         width: 65vw;
-    } */
+    }
 }
 
 @media screen and (min-width: 550px) and (max-width: 992px) {
@@ -263,17 +273,16 @@ li {
 }
 
 @media screen and (min-width: 992px) {
-    /* #list-form-container img {
-        width: 20vw;
-    } */
+    #list-form-container img {
+        width: 60vw;
+    }
 }
 
 @media screen and (max-width: 390px) {
 
 
     #list-form-container img {
-        width: 38vw;
-        margin-top: -20vh;
+        width: 50vw;
     }
 
     #collection-container {
@@ -298,15 +307,5 @@ li {
 
     #testimonials-container .card .card-body p {
         font-size: 3.5vw;
-    }
-}
-
-@media screen and (max-width: 300px) {
-    #logo{
-        min-width: none;
-        width: 100px;
-        position: absolute;
-        top: 1vh;
-        left: 10vw;
     }
 }

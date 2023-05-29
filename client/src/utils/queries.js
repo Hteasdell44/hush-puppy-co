@@ -26,6 +26,18 @@ export const ALL_PRODUCTS = gql`
     }
 `;
 
+export const SPECIFIC_PRODUCT = gql`
+    query SpecificProduct($specificProductId: String!) {
+      specificProduct(id: $specificProductId) {
+        name
+        imageLink
+        price
+        description
+        inventory
+      }
+    }
+`;
+
 export const ALL_BLOG_POSTS = gql`
     query AllBlogPosts {
         allBlogPosts {

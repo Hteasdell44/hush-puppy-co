@@ -31,7 +31,8 @@
 }
 
 #footer-container ul li {
-    font-size: 4vw;
+    
+    font-size: medium;
     display: inline;
     margin-right: 3vw;
     background-color: white;
@@ -43,6 +44,14 @@
 #footer-container ul li a {
     text-decoration: none;
     color: black;
+}
+
+#navbar-links ul li a {
+    color: black;
+}
+
+#navbar-links ul li a:hover {
+    scale: 1.025;
 }
 
 @media screen and (min-width: 992px) {
@@ -58,10 +67,6 @@
         display: block;
         margin: 0 auto;
         min-width: 200px;
-    }
-
-    #footer-container ul li {
-        font-size: 1vw;
     }
 
 }
@@ -80,10 +85,6 @@
         margin: 0 auto;
         min-width: 200px;
     }
-
-    #footer-container ul li {
-        font-size: 3vw;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -95,9 +96,17 @@
     }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 410px) {
 
     #footer-container ul li {
-        font-size: 3vw;
+        font-size: x-small;
+    }
+}
+
+@media screen and (max-width: 340px) {
+
+    #logo {
+       width: 50vw;
+        min-width: 10px;
     }
 }
