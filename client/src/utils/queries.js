@@ -50,4 +50,16 @@ export const ALL_BLOG_POSTS = gql`
     }
 `;
 
+export const SPECIFIC_BLOG_POST = gql`
+    query SpecificBlogPost($specificBlogPostId: String!) {
+      specificBlogPost(id: $specificBlogPostId) {
+        _id
+        title
+        postDate
+        author
+        postBody
+      }
+    }
+`;
+
 

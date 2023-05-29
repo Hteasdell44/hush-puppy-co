@@ -17,7 +17,7 @@ export default function BlogDisplay() {
 
                 {blogList && blogList.map((blog) => (
 
-                    <a className="col-10 col-md-10 col-xl-10 col-lg-10 blog-card">
+                    <a href={`/blog/${blog._id}`} className="col-10 col-md-10 col-xl-10 col-lg-10 blog-card">
 
                         <div key={blog._id}>
 

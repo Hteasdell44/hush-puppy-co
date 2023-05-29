@@ -11,8 +11,9 @@ import Footer from "./components/Reused/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Catalog from "./pages/Catalog";
-import Blog from "./pages/Blog";
 import Product from "./pages/Product";
+import BlogList from "./pages/BlogList";
+import SingleBlog from "./pages/SingleBlog";
 
 document.title = "Hush Puppy Co.";
 
@@ -57,7 +58,9 @@ const App = () => {
 
                         <Route path="/catalog/:id" element={<Product />}/>                        
 
-                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog" element={<BlogList />} />
+
+                        <Route path="/blog/:id" element={<SingleBlog />} />
 
                     </Routes>
                 </Router>

@@ -77,3 +77,51 @@
 .blog-card .card .card-header {
     background-color: #52B6FF;
 }
+
+#single-blog-display-container {
+    width: 100vw;
+    min-height: 75.25vh;
+    text-align: center;
+}
+
+#single-blog-display-container h3 {
+    background-color: lightgrey;
+    border-radius: 10px;
+    display: inline;
+    padding: 1vh;
+}
+
+#single-blog-display-container button {
+    width: 30vw;
+    display: block;
+    margin: auto;
+    margin-top: 3vh;
+    background-color: #52B6FF;
+    border: none;
+    padding: 1vh;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+#single-blog-display-container button:hover {
+    scale: 1.025
+}
+
+#single-blog-display-container h4 {
+    margin-top: 3vh;
+}
+
+ #single-blog-display-container h2 {
+    font-size: xx-large;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+#single-blog-display-container img {
+    width: 60vw;
+    max-width: 750px;
+    display: block;
+    margin: auto;
+    margin-bottom: 3vh;
+}
