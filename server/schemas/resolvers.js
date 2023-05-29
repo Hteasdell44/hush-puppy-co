@@ -15,6 +15,10 @@ const resolvers = {
       return Product.find({});
     },
 
+    specificProduct: async (parent, args) => {
+      return Product.findOne({ _id: args.id });
+    },
+
     allBlogPosts: async (parent, args) => {
       return BlogPost.find({});
     }

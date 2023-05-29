@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Catalog from "./pages/Catalog";
 import Blog from "./pages/Blog";
+import Product from "./pages/Product";
 
 document.title = "Hush Puppy Co.";
 
@@ -53,6 +54,8 @@ const App = () => {
                         <Route path="/contact" element={<Contact />} />
 
                         <Route path="/catalog" element={<Catalog />} />
+
+                        <Route path="/catalog/:id" element={<Product />}/>                        
 
                         <Route path="/blog" element={<Blog />} />
 

@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { ALL_PRODUCTS } from "../../utils/queries";
 
 
-export default function ProductDisplay() {
+export default function CatalogDisplay() {
 
     const { data } =  useQuery(ALL_PRODUCTS);
     const productList = data?.allProducts || [];
@@ -17,7 +17,7 @@ export default function ProductDisplay() {
 
                 {productList && productList.map((product) => (
 
-                    <a className="col-10 col-md-5 col-xl-4 col-lg-4 product-card">
+                    <a href={`/catalog/${product._id}`} className="col-10 col-md-5 col-xl-4 col-lg-4 product-card">
 
                         <div key={product._id}>
 

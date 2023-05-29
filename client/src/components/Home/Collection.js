@@ -31,7 +31,7 @@ export default function Collection() {
                             </div>
                         </div>
 
-                        <button id="view-all-products-button">View All Products</button>
+                        <a id="view-all-products-button" href="/catalog">View All Products</a>
 
                 </div>
 

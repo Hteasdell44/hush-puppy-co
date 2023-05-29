@@ -24,6 +24,7 @@
     position: relative;
     text-align: center;
     box-shadow: 5px 5px 5px gray;
+    background-color: lightgray;
 }
 
 .blog-card:hover {
@@ -49,6 +50,7 @@
 .blog-info h4 {
     margin-top: 1vh;
     font-size: medium;
+    color: black;
 }
 
 .blog-info h5 {
