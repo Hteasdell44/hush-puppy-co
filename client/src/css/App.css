@@ -7,6 +7,7 @@
     z-index: 1;
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 #logo {
@@ -54,6 +55,38 @@
     scale: 1.025;
 }
 
+#profile-link {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+    #profile-link {
+        display: block;
+    }
+
+    #navbar-links ul {
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+        position: absolute;
+        margin-top: 5vh;
+        margin-left: -.1vh;
+        left: 0;
+        position: fixed;
+        padding-top: 4vh;
+    }
+
+    #navbar-links ul li {
+        font-size: x-large;
+        background-color: #52B6FF;
+        border-radius: 10px;
+        width: 80vw;
+        margin: 0 auto;
+        margin-top: 5vh;
+    }    
+}
+
 @media screen and (min-width: 992px) {
 
     #logo-link {
@@ -75,7 +108,7 @@
 
     #logo-link {
         text-align: center;
-        margin-left: -28vw;
+        margin-left: -20vw;
     }
 
     #logo {
@@ -92,7 +125,13 @@
 
     #logo-link {
         text-align: center;
-        margin-left: -2vw;
+        margin-left: -10vw;
+    }
+
+    #logo {
+        display: block;
+        margin: 0 auto;
+        min-width: 200px;
     }
 }
 
