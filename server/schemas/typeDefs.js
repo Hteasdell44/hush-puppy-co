@@ -36,6 +36,7 @@ type Query {
   allProducts: [Product]
   specificProduct(id: String!): Product
   allBlogPosts: [BlogPost]
+  specificBlogPost(id: String!): BlogPost 
 }
 
 type Mutation {

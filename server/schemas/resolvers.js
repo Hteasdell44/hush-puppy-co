@@ -21,6 +21,10 @@ const resolvers = {
 
     allBlogPosts: async (parent, args) => {
       return BlogPost.find({});
+    },
+
+    specificBlogPost: async (parent, args) => {
+      return BlogPost.findOne({ _id: args.id });
     }
    },
 

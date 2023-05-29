@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { SPECIFIC_PRODUCT } from "../../utils/queries";
 
-export default function ProductDisplay() {
+export default function ProductPage() {
 
     const { id } = useParams();
     const { data } = useQuery(SPECIFIC_PRODUCT, {variables: { specificProductId: id } });
