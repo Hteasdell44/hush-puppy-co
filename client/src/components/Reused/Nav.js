@@ -6,17 +6,17 @@ export default function Nav() {
 
 
     return (
-
         <header>
 
-                <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-white">
+                <nav id="nav-bar" class="navbar navbar-expand-md navbar-light bg-white">
 
                     <div class="container-fluid">
 
-                        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                             <i class="fas fa-bars"></i>
                         </button>
+
 
                         <div id="nav-links-container">
 
@@ -42,6 +42,10 @@ export default function Nav() {
 
                                     <li class="nav-item">
                                         <a class="nav-link" href="/contact">Contact Us</a>
+                                    </li>
+
+                                    <li class="nav-item" id="profile-link">
+                                        <a class="nav-link" href="/profile">Login</a>
                                     </li>
 
                                 </ul>
@@ -70,6 +74,7 @@ export default function Nav() {
                 </nav>
 
         </header>
+
     );
 
 }
