@@ -1,0 +1,11 @@
+#login-container {
+    width: 100vw;
+    height: 75.3vh;
+}
+
+#login-container h2 {
+    font-size: xx-large;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}

@@ -45,7 +45,7 @@ export default function Nav() {
                                     </li>
 
                                     <li class="nav-item" id="profile-link">
-                                        <a class="nav-link" href="/profile">Login</a>
+                                        <a class="nav-link" href="/login">Login</a>
                                     </li>
 
                                 </ul>
@@ -59,7 +59,7 @@ export default function Nav() {
                         
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#">
+                                <a href="/login">
                                     <img id="profile-icon" src={ProfileIcon}/>
                                 </a>
 

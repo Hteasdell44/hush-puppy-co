@@ -3,7 +3,7 @@ import GenericPup from "../../utils/img/generic-pup.jpeg";
 export default function ListForm() {
     return (
         <div id="list-form-container">
-            <h2>Join The Family!</h2>
+            <h2>Join Our Mailing List!</h2>
 
             <form>
                 <div class="form-group">

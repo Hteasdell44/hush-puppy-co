@@ -14,6 +14,8 @@ import Catalog from "./pages/Catalog";
 import Product from "./pages/Product";
 import BlogList from "./pages/BlogList";
 import SingleBlog from "./pages/SingleBlog";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 document.title = "Hush Puppy Co.";
 
@@ -38,6 +40,7 @@ const client = new ApolloClient({
   });
 
 const App = () => {
+
     return(
 
         <div>
@@ -45,7 +48,9 @@ const App = () => {
             <Nav />
 
             <ApolloProvider client={client}>
+
                 <Router>
+
                     <Routes>
 
                         <Route path="/" element={<Home />} />
@@ -62,8 +67,16 @@ const App = () => {
 
                         <Route path="/blog/:id" element={<SingleBlog />} />
 
+                        <Route path="/login" element={<Login />} />
+
+                        <Route path="/signup" element={<Signup />} />
+                        
+                                            
+
                     </Routes>
+
                 </Router>
+
             </ApolloProvider>
 
             <Footer />
