@@ -1,9 +1,9 @@
-#signup-container {
+#profile-container {
     width: 100vw;
-    height: 85vh;
+    height: 75.3vh;
 }
 
-#signup-container h2 {
+#profile-container h2 {
     font-size: xx-large;
     margin-top: 15vh;
     margin-bottom: 5vh;

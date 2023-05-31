@@ -3,9 +3,25 @@ const Product = require('../models/Product');
 const Cart = require('../models/Cart');
 const BlogPost = require('../models/BlogPost');
 
+const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require('apollo-server-express');
+
 const resolvers = {
 
   Query: {
+
+    currentUser: async (parent, args, context) => {
+
+      if (context.user) {
+        console.log("hello");
+        return User.findOne({ _id: contextValue.user._id });
+      }
+      // throw new AuthenticationError('You need to be logged in!');
+    },
+
+    allUsers: async (parent, args) => {
+      return User.find({});
+    },
 
     specificUser: async (parent, args) => {
       return User.findOne({ email: args.email });
@@ -32,8 +48,32 @@ const resolvers = {
   Mutation: {
 
     createUser: async (parent, args) => {
-      const newUser = await User.create(args);
-      return newUser;
+
+      const userExists = await User.findOne({ email: args.email });
+
+      if (userExists) {
+        throw new AuthenticationError('User with that email already exists!');
+      }
+
+      const newUser = await User.create({ ...args });
+      const token = signToken(newUser);
+      return { token, newUser };
+    },
+
+    login: async (parent, { email, password }) => {
+
+      const userExists = await User.findOne({ email });
+
+      if (!userExists) {
+        throw new AuthenticationError('No user found with that email!');
+      }
+
+      if (password !== userExists.password) {
+        throw new AuthenticationError('Your password is incorrect!');
+      }
+
+      const token = signToken(userExists);
+      return { token, userExists };
     },
 
     createProduct: async (parent, args) => {

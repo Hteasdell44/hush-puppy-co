@@ -16,6 +16,7 @@ import BlogList from "./pages/BlogList";
 import SingleBlog from "./pages/SingleBlog";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 
 document.title = "Hush Puppy Co.";
 
@@ -70,6 +71,8 @@ const App = () => {
                         <Route path="/login" element={<Login />} />
 
                         <Route path="/signup" element={<Signup />} />
+
+                        <Route path="/profile" element={<Profile />} />
                         
                                             
 
