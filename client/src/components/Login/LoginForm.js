@@ -1,4 +1,49 @@
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import Auth from "../../utils/auth.js";
+import { LOGIN } from "../../utils/mutations.js";
+
 export default function LoginForm() {
+
+    if (Auth.loggedIn()) {
+        window.location.assign("/profile");
+    }
+
+    const [formState, setFormState] = useState({ email: "", password: "" });
+    const [loginError, setLoginError] = useState("");
+    const [login] = useMutation(LOGIN);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+        ...formState,
+        [name]: value,
+        });
+    };
+
+    const handleLoginSubmit = async (event) => {
+        event.preventDefault();
+        try {
+        const mutationResponse = await login({
+            variables: {
+            email: formState.loginEmail,
+            password: formState.loginPassword,
+            },
+        });
+        const token = mutationResponse.data?.login?.token;
+        if (token) {
+            Auth.login(token);
+        } else {
+            console.log("Error logging in", mutationResponse.data);
+        }
+
+        } catch (err) {
+
+        setLoginError(err.message);
+        console.log(err.message);
+
+        }
+    };
     
     return(
 
@@ -6,32 +51,23 @@ export default function LoginForm() {
 
             <h2>Log In</h2>
 
-            <form>
+            <form onSubmit={handleLoginSubmit}>
 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example1">Email</label>
-                    <input type="email" id="form2Example1" class="form-control" />
+                    <input type="email" name="loginEmail" id="form2Example1" class="form-control" onChange={handleChange} />
                 </div>
 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example2">Password</label>
-                    <input type="password" id="form2Example2" class="form-control" />
+                    <input type="password" name="loginPassword" id="form2Example2" class="form-control" onChange={handleChange} />
                 </div>
 
-          
-                <div class="row mb-4">
-                    <div class="col d-flex justify-content-center">
-                        <a href="#!" className="text-align-center">Forgot Your Password?</a>
-                    </div>
-
-
-                        
-                </div>
-
-                <button type="button" class="btn btn-primary btn-block mb-4">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
 
                 <div class="text-center">
                     <p>Not a Member? <a href="/signup">Register</a></p>
+                    {loginError && (<div className="p-3 text-red-600">{loginError}</div>)}
                 </div>
 
             </form>

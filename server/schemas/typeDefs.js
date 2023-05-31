@@ -31,7 +31,14 @@ type Cart {
   products: [Product]
 }
 
+type Auth {
+  token: ID!
+  user: User
+}
+
 type Query {
+  currentUser: User
+  allUsers: [User]
   specificUser(email: String!): User
   allProducts: [Product]
   specificProduct(id: String!): Product
@@ -40,7 +47,8 @@ type Query {
 }
 
 type Mutation {
-  createUser(firstName: String!, lastName: String!, email: String!, password: String!): User
+  createUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+  login(email: String!, password: String!): Auth
   createProduct(name: String!, price: Float!, imageLink: String!, description: String!, inventory: Int): Product
   addProductToCart(cartId: ID!, productName: String!): Cart
   removeProductFromCart(cartId: ID!, productName: String!): Cart
