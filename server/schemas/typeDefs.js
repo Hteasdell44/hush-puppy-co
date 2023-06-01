@@ -28,7 +28,8 @@ type BlogPost {
 }
 
 type Cart {
-  products: [Product]
+  _id: ID
+  productIds: [ID]
 }
 
 type Auth {
@@ -37,11 +38,12 @@ type Auth {
 }
 
 type Query {
-  currentUser: User
   allUsers: [User]
   specificUser(email: String!): User
   allProducts: [Product]
   specificProduct(id: String!): Product
+  specificCart(id: String!): Cart
+  allCarts: [Cart]
   allBlogPosts: [BlogPost]
   specificBlogPost(id: String!): BlogPost 
 }
@@ -50,8 +52,9 @@ type Mutation {
   createUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
   createProduct(name: String!, price: Float!, imageLink: String!, description: String!, inventory: Int): Product
-  addProductToCart(cartId: ID!, productName: String!): Cart
-  removeProductFromCart(cartId: ID!, productName: String!): Cart
+  createCart: Cart
+  addProductToCart(cartId: ID!, productId: ID!): Cart
+  removeProductFromCart(cartId: ID!, productId: ID!): Cart
   createBlogPost(title: String!, author: String!, postBody: String!, postedAt: String): BlogPost
 }
 `;

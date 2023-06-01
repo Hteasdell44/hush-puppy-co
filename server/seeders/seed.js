@@ -16,6 +16,7 @@ db.once('open', async () => {
   await BlogPost.insertMany(blogData);
 
 
+
   console.log('The Hush Puppy Company Database Has Been Seeded 🌱!');
   process.exit(0);
 });

@@ -35,32 +35,29 @@ export const CREATE_PRODUCT = gql`
     }
 `;
 
+export const CREATE_CART = gql`
+    mutation Mutation {
+      createCart {
+        _id
+        productIds
+      }
+    }
+`;
+
 export const ADD_PRODUCT_TO_CART = gql`
-    mutation AddProductToCart($cartId: ID!, $productName: String!) {
-        addProductToCart(cartId: $cartId, productName: $productName) {
-            products {
-              _id
-              name
-              price
-              imageLink
-              description
-              inventory
-            }
-        }
+    mutation Mutation($cartId: ID!, $productId: ID!) {
+      addProductToCart(cartId: $cartId, productId: $productId) {
+        _id
+        productIds
+      }
     }
 `;
 
 export const REMOVE_PRODUCT_FROM_CART = gql`
-    mutation RemoveProductFromCart($cartId: ID!, $productName: String!) {
-        removeProductFromCart(cartId: $cartId, productName: $productName) {
-            products {
-              _id
-              name
-              price
-              imageLink
-              description
-              inventory
-            }
+    mutation RemoveProductFromCart($cartId: ID!, $productId: ID!) {
+        removeProductFromCart(cartId: $cartId, productId: $productId) {
+          _id
+          productIds
         }
     }
 `;

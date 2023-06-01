@@ -38,6 +38,15 @@ export const SPECIFIC_PRODUCT = gql`
     }
 `;
 
+export const SPECIFIC_CART = gql`
+    query SpecificCart($specificCartId: String!) {
+      specificCart(id: $specificCartId) {
+        _id
+        productIds
+      }
+    }
+`;
+
 export const ALL_BLOG_POSTS = gql`
     query AllBlogPosts {
         allBlogPosts {

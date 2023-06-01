@@ -55,6 +55,10 @@
     scale: 1.025;
 }
 
+li a:hover {
+    cursor: pointer;
+}
+
 #profile-link {
     display: none;
 }

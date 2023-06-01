@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useRef } from "react";
 import Home from "./pages/Home";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -17,6 +17,7 @@ import SingleBlog from "./pages/SingleBlog";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import Cart from "./pages/Cart";
 
 document.title = "Hush Puppy Co.";
 
@@ -74,7 +75,7 @@ const App = () => {
 
                         <Route path="/profile" element={<Profile />} />
                         
-                                            
+                        <Route path="/cart" element={<Cart />} />                    
 
                     </Routes>
 
