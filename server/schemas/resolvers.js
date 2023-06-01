@@ -10,15 +10,6 @@ const resolvers = {
 
   Query: {
 
-    currentUser: async (parent, args, context) => {
-
-      if (context.user) {
-        console.log("hello");
-        return User.findOne({ _id: contextValue.user._id });
-      }
-      // throw new AuthenticationError('You need to be logged in!');
-    },
-
     allUsers: async (parent, args) => {
       return User.find({});
     },
@@ -33,6 +24,14 @@ const resolvers = {
 
     specificProduct: async (parent, args) => {
       return Product.findOne({ _id: args.id });
+    },
+
+    specificCart: async (parent, args) => {
+      return await Cart.findOne({ _id: args.id});
+    },
+
+    allCarts: async (parent, args) => {
+      return Cart.find({});
     },
 
     allBlogPosts: async (parent, args) => {
@@ -81,13 +80,16 @@ const resolvers = {
       return newProduct;
     },
 
+    createCart: async (parent, args) => {
+      const cart = await Cart.create({});
+      return cart;
+    },
+
     addProductToCart: async (parent, args) => {
 
-      const productToAdd = Product.findOne({ name: args.productName });
-
-      const updatedCart = Cart.updateOne(
+      const updatedCart = Cart.findOneAndUpdate(
         { _id: args.cartId },
-        { $addToSet: { products: productToAdd }},
+        { $addToSet: { productIds: args.productId }},
         { new: true}
       );
 
@@ -95,10 +97,10 @@ const resolvers = {
     },
 
     removeProductFromCart: async (parent, args) => {
-      const productToRemove = Product.findOne({ name: args.productName });
-      const updatedCart = Cart.updateOne(
+      
+      const updatedCart = Cart.findOneAndUpdate(
         { _id: args.cartId },
-        { $pull: { products: productToRemove }},
+        { $pull: { productIds: args.productId }},
         { new: true }
       );
 

@@ -1,9 +1,20 @@
 import Logo from "../../utils/img/thpc-logo.png";
 import ShoppingCartIcon from "../../utils/img/shopping-cart-icon.png";
 import ProfileIcon from "../../utils/img/profile-icon.png";
+import AuthService from "../../utils/auth.js";
+
+import { useEffect, useRef } from "react";
 
 export default function Nav() {
 
+    const handleClick = () => {
+
+        if (AuthService.loggedIn()) {
+
+            window.location.assign('/profile');
+    
+        } else { window.location.assign('/login')}
+    }
 
     return (
         <header>
@@ -45,7 +56,7 @@ export default function Nav() {
                                     </li>
 
                                     <li class="nav-item" id="profile-link">
-                                        <a class="nav-link" href="/login">Login</a>
+                                        <a class="nav-link" onClick={handleClick}>View Profile</a>
                                     </li>
 
                                 </ul>
@@ -59,11 +70,11 @@ export default function Nav() {
                         
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="/login">
+                                <a onClick={handleClick}>
                                     <img id="profile-icon" src={ProfileIcon}/>
                                 </a>
 
-                                <a id="shopping-cart-button" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
+                                <a id="shopping-cart-button" href="/cart" role="button" aria-expanded="false"> 
                                     <img id="shopping-cart-icon" src={ShoppingCartIcon}/>
                                 </a>
                             </li>
