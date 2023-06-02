@@ -36,7 +36,7 @@ export default function SignupForm(){
             variables: {
               firstName: formState.firstName,
               lastName: formState.lastName,
-              email: formState.email,
+              email: formState.email.toLowerCase(),
               password: formState.password,
             },
           });

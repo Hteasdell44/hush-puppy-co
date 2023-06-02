@@ -2,35 +2,35 @@
     {
         "firstName": "Justin",
         "lastName": "Gordon",
-        "email": "JustinG@gmail.com",
+        "email": "justing@gmail.com",
         "password": "123Power789"
     },
 
     {
         "firstName": "Jus",
         "lastName": "Lopi",
-        "email": "Juslopi@ymail.com",
+        "email": "juslopi@ymail.com",
         "password": "PowerBall89"
     },
 
     {
         "firstName": "Darnold",
         "lastName": "Myers",
-        "email": "BustinGame@gmail.com",
+        "email": "justingame@gmail.com",
         "password": "127WaysToWin"
     },
 
     {
         "firstName": "Dustin",
         "lastName": "Chatham",
-        "email": "DustinC@hotmail.com",
+        "email": "dustinc@hotmail.com",
         "password": "RowdyrThnU2"
     },
 
     {
         "firstName": "Alex",
         "lastName": "Lopez",
-        "email": "AlexGuerreraLopez@gmail.com",
+        "email": "alexguerreralopez@gmail.com",
         "password": "PasPasSPas"
     }
 ]

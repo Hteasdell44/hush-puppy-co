@@ -26,7 +26,7 @@ export default function LoginForm() {
         try {
         const mutationResponse = await login({
             variables: {
-            email: formState.loginEmail,
+            email: formState.loginEmail.toLowerCase(),
             password: formState.loginPassword,
             },
         });

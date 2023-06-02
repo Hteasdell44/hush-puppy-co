@@ -1,6 +1,6 @@
 #profile-container {
     width: 100vw;
-    height: 75.3vh;
+    /* height: 75.3vh; */
 }
 
 #profile-container h2 {
@@ -8,4 +8,45 @@
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
+}
+
+#profile-container div {
+    border: 2px solid black;
+    padding: 3vh;
+    width: 80vw;
+    display: block;
+    margin: auto;
+    margin-bottom: 3vh;
+}
+
+#profile-container div form {
+    width: 60vw;
+    border: none;
+    background-color: #52B6FF;
+}
+
+#profile-container div p {
+    text-align: center;
+    color: white;
+}
+
+#profile-container div form button {
+    
+    background-color: white;
+    color: #52B6FF;
+}
+
+#profile-container div input {
+    width: 1;
+}
+
+
+#profile-container button {
+    width: 30vw;
+    display: block;
+    margin: auto;
+    /* margin-bottom: 5vh; */
+    border: none;
+    background-color: #52B6FF;
+    padding: 1.5vh;
 }
