@@ -22,6 +22,7 @@ export const ALL_PRODUCTS = gql`
           description
           imageLink
           inventory
+          amountInCart
         }
     }
 `;
@@ -34,6 +35,7 @@ export const SPECIFIC_PRODUCT = gql`
         price
         description
         inventory
+        amountInCart
       }
     }
 `;
@@ -42,7 +44,13 @@ export const SPECIFIC_CART = gql`
     query SpecificCart($specificCartId: String!) {
       specificCart(id: $specificCartId) {
         _id
-        productIds
+        productIds {
+          _id
+          name
+          price
+          imageLink
+          amountInCart
+        }
       }
     }
 `;

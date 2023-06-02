@@ -26,6 +26,11 @@ const productSchema = new Schema({
     type: Number,
   },
 
+  amountInCart: {
+    type: Number,
+    default: 0,
+  }
+
 });
 
 const Product = model('Product', productSchema);

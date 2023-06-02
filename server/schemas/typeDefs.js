@@ -17,6 +17,7 @@ type Product {
   imageLink: String!
   description: String!
   inventory: Int
+  amountInCart: Int
 }
 
 type BlogPost {
@@ -29,7 +30,7 @@ type BlogPost {
 
 type Cart {
   _id: ID
-  productIds: [ID]
+  productIds: [Product]
 }
 
 type Auth {
@@ -50,6 +51,7 @@ type Query {
 
 type Mutation {
   createUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+  updateUser(userId: ID!, firstName: String, lastName: String, email: String): User
   login(email: String!, password: String!): Auth
   createProduct(name: String!, price: Float!, imageLink: String!, description: String!, inventory: Int): Product
   createCart: Cart

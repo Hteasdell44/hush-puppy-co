@@ -10,12 +10,22 @@
     text-align: center;
 }
 
-.cart-info {
+.cart-info h4 {
+    border-bottom: 2px solid black;
+}
+
+.cart-card-container {
     width: 80vw;
     display: block;
     margin: auto;
     border: 2px solid black;
     border-radius: 10px;
+    margin-bottom: 3vh;
+}
+
+.cart-info-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-info img {
@@ -33,8 +43,12 @@
     background-color: lightgray;
     border: 2px solid black;
     padding: 10px;
-    border-radius: 10px;
-    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: none;
+    width: 40%;
+    display: block;
+    margin: auto;
     margin-bottom: -.2vh;
     
 }
@@ -43,12 +57,69 @@
     margin-top: 25vh;
 }
 
-#cart-container button {
-    width: 60vw;
+.delete-button {
+    position: relative;
+    width: 25%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2vh;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.delete-button:hover {
+    scale: 1.025;
+}
+
+.continue-shopping {
+    width: 60%;
     display: block;
     margin: auto;
     margin-top: 3vh;
     background-color: #52B6FF;
     border-radius: 10px;
     padding: 1vh;
+}
+
+#checkout-button {
+    width: 60%;
+    display: block;
+    margin: auto;
+    margin-top: 3vh;
+    background-color: #52B6FF;
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+.quantity-form-container {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.quantity-form {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    box-shadow: none;
+    background-color: #52B6FF;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    text-align: center;
+}
+
+.quantity-form input {
+    width: 10%;
+    margin-left: 1vw;
+    
+    text-align: center;
+}
+
+.quantity-buttons {
+    width: 20%;
+    margin-left: 1vw;
 }

@@ -27,7 +27,7 @@ const resolvers = {
     },
 
     specificCart: async (parent, args) => {
-      return await Cart.findOne({ _id: args.id});
+      return Cart.findOne({ _id: args.id}).populate('productIds');
     },
 
     allCarts: async (parent, args) => {
@@ -59,6 +59,18 @@ const resolvers = {
       return { token, newUser };
     },
 
+    updateUser: async (parent, args) => {
+
+      const updatedUser = await User.findOneAndUpdate(
+        {_id: args.userId},
+        {...args},
+        {new: true}
+      );
+
+      return updatedUser;
+
+    },
+
     login: async (parent, { email, password }) => {
 
       const userExists = await User.findOne({ email });
@@ -80,6 +92,14 @@ const resolvers = {
       return newProduct;
     },
 
+    // updateProduct: async (parent, args) => {
+    //   const updatedProduct = Product.findOneAndUpdate(
+    //     { _id: args.productId },
+    //     { $inc: { "amountInCart" : 1 }},
+    //     { new: true}
+    //   );
+    // },
+
     createCart: async (parent, args) => {
       const cart = await Cart.create({});
       return cart;
@@ -87,21 +107,31 @@ const resolvers = {
 
     addProductToCart: async (parent, args) => {
 
-      const updatedCart = Cart.findOneAndUpdate(
+      const updatedCart = await Cart.findOneAndUpdate(
         { _id: args.cartId },
         { $addToSet: { productIds: args.productId }},
         { new: true}
+      );
+
+      const updatedProduct = await Product.updateOne(
+        { _id: args.productId },
+        { $inc: { amountInCart : 1 }}
       );
 
       return updatedCart;
     },
 
     removeProductFromCart: async (parent, args) => {
-      
-      const updatedCart = Cart.findOneAndUpdate(
+
+      const updatedCart = await Cart.findOneAndUpdate(
         { _id: args.cartId },
         { $pull: { productIds: args.productId }},
-        { new: true }
+        { new: true}
+      );
+
+      const updatedProduct = await Product.updateOne(
+        { _id: args.productId },
+        { $set: { amountInCart : 0 }}
       );
 
       return updatedCart;
