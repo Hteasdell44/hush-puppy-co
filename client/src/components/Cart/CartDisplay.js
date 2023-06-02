@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { SPECIFIC_CART, SPECIFIC_PRODUCT } from "../../utils/queries";
-import { REMOVE_PRODUCT_FROM_CART } from "../../utils/mutations";
+import { DECREASE_AMOUNT_IN_CART, INCREASE_AMOUNT_IN_CART, REMOVE_PRODUCT_FROM_CART } from "../../utils/mutations";
 
 export default function CartDisplay() {
 
@@ -23,6 +23,29 @@ export default function CartDisplay() {
         console.log(event.target.value);
         const updatedCart = await removeProductFromCart({ variables: { cartId: cartId, productId: event.target.value }});
         return updatedCart;
+    }
+
+    const [increaseAmountInCart, { data: increasedCartData}] = useMutation(INCREASE_AMOUNT_IN_CART);
+    const [decreaseAmountInCart, { data: decreasedCartData}] = useMutation(DECREASE_AMOUNT_IN_CART);
+
+    const increaseCartAmount = async (event, productId) => {
+        
+        const updatedProduct = await increaseAmountInCart({ variables: { productId: productId }});
+        return updatedProduct;
+    }
+
+    const decreaseCartAmount = async (event, productId, amountInCart) => {
+
+        if (amountInCart > 1) {
+
+            const updatedProduct = await decreaseAmountInCart({ variables: { productId: productId }});
+            return updatedProduct;
+
+        } else {
+
+            removeFromCart(event);
+        }
+        
     }
     
     if (cartItems.length == 0) {
@@ -70,12 +93,12 @@ export default function CartDisplay() {
                     </a>
                     <button className="delete-button" value={item._id} onClick={(event) => removeFromCart(event)}>Remove</button>
 
-                    <form className="quantity-form">
+                    <div className="quantity-form">
                         <label for="quantity">Quantity:</label>
-                        <button className="quantity-buttons"><span>&#8595;</span></button>
+                        <button className="quantity-buttons" value={item._id} onClick={(event) => decreaseCartAmount(event, item._id, item.amountInCart)} ><span>&#8595;</span></button>
                         <input placeholder={item.amountInCart} type="number" name="quantity" min="1" max={item.inventory} readOnly/>
-                        <button className="quantity-buttons"><span>&#8593;</span></button>
-                    </form>
+                        <button className="quantity-buttons" onClick={(event) => increaseCartAmount(event, item._id)}><span>&#8593;</span></button>
+                    </div>
 
                 </div>
 

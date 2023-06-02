@@ -9,3 +9,7 @@
     margin-bottom: 5vh;
     text-align: center;
 }
+
+#login-container form {
+    height: 52.5%
+}

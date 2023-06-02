@@ -52,6 +52,8 @@ type Query {
 type Mutation {
   createUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
   updateUser(userId: ID!, firstName: String, lastName: String, email: String): User
+  increaseAmountInCart(productId: ID!): Product
+  decreaseAmountInCart(productId: ID!): Product
   login(email: String!, password: String!): Auth
   createProduct(name: String!, price: Float!, imageLink: String!, description: String!, inventory: Int): Product
   createCart: Cart

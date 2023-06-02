@@ -121,6 +121,28 @@ const resolvers = {
       return updatedCart;
     },
 
+    increaseAmountInCart: async (parent, args) => {
+
+      const updatedProduct = await Product.findOneAndUpdate(
+        { _id: args.productId },
+        { $inc: { amountInCart : 1 }},
+        { new: true }
+      );
+      
+      return updatedProduct;
+    },
+
+    decreaseAmountInCart: async (parent, args) => {
+
+      const updatedProduct = await Product.findOneAndUpdate(
+        { _id: args.productId },
+        { $inc: { amountInCart : -1 }},
+        { new: true }
+      );
+
+      return updatedProduct;
+    },
+
     removeProductFromCart: async (parent, args) => {
 
       const updatedCart = await Cart.findOneAndUpdate(
