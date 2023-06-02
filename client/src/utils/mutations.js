@@ -34,6 +34,26 @@ export const UPDATE_USER = gql`
     }
 `;
 
+export const INCREASE_AMOUNT_IN_CART = gql`
+    mutation IncreaseAmountInCart($productId: ID!) {
+      increaseAmountInCart(productId: $productId) {
+        _id
+        name
+        amountInCart
+      }
+    }
+`;
+
+export const DECREASE_AMOUNT_IN_CART = gql`
+    mutation DecreaseAmountInCart($productId: ID!) {
+      decreaseAmountInCart(productId: $productId) {
+        _id
+        name
+        amountInCart
+      }
+    }
+`;
+
 export const CREATE_PRODUCT = gql`
     mutation CreateProduct($name: String!, $price: Float!, $imageLink: String!, $description: String!) {
         createProduct(name: $name, price: $price, imageLink: $imageLink, description: $description) {
