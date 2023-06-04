@@ -29,6 +29,10 @@ const productSchema = new Schema({
   amountInCart: {
     type: Number,
     default: 0,
+  },
+
+  stripeId: {
+    type: String,
   }
 
 });
