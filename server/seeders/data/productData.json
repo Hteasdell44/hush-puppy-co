@@ -4,7 +4,8 @@
         "price": 17.99,
         "imageLink": "https://i.ibb.co/4PGhDtt/snuffle-mat.jpg",
         "description": "Another very lovely decription of another very lovely product.",
-        "inventory": 7
+        "inventory": 7,
+        "stripeId": "price_1NEcVGLPaVHcGI2U8b3ITc3d"
     },
 
     {
@@ -12,7 +13,8 @@
         "price": 14.99,
         "imageLink": "https://i.ibb.co/Dfw9CxS/calm-treats.jpg",
         "description": "Once again, another very lovely decription of another very lovely product.",
-        "inventory": 7
+        "inventory": 7,
+        "stripeId": "price_1NEe1pLPaVHcGI2UojXalyq8"
     },
 
     {
@@ -20,7 +22,8 @@
         "price": 27.99,
         "imageLink": "https://i.ibb.co/981Y6hj/calm-toy.webp",
         "description": "Very lovely decription of very lovely product.",
-        "inventory": 37
+        "inventory": 37,
+        "stripeId": "price_1NEe2FLPaVHcGI2UWA8e541u"
     },
 
     {
@@ -28,7 +31,8 @@
         "price": 47.99,
         "imageLink": "https://i.ibb.co/30Wm0JB/cozy-bed.jpg",
         "description": "Yet another very lovely decription of another very lovely product.",
-        "inventory": 71
+        "inventory": 71,
+        "stripeId": "price_1NEe2mLPaVHcGI2UDs458Uhi"
     },
 
     {
@@ -36,13 +40,15 @@
         "price": 99.99,
         "imageLink": "https://i.ibb.co/nL79Yv0/puppy-gate.webp",
         "description": "This is a very sturdy gate. It's meant to keep busy dogs contained.",
-        "inventory": 21
+        "inventory": 21,
+        "stripeId": "price_1NEe3ILPaVHcGI2U8ay62XtK"
     },
 
     {
         "name": "Home Alone: Digital Guide",
         "price": 19.99,
         "imageLink": "https://i.ibb.co/pnnSwk0/Screenshot-2023-05-26-at-3-50-34-PM.png",
-        "description": "A sixteen hour course on training your pup. Comes with additional resources and exercises."
+        "description": "A sixteen hour course on training your pup. Comes with additional resources and exercises.",
+        "stripeId": "price_1NEe3kLPaVHcGI2UNK2hiKY7"
       }
 ]

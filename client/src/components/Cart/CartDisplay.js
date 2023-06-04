@@ -105,7 +105,11 @@ export default function CartDisplay() {
             ))}
 
             <button className="continue-shopping" onClick={directToProducts}>Continue Shopping</button>
-            <button id ="checkout-button">Checkout</button>
+            <form action="/create-checkout-session" method="POST">
+                <button type="submit">
+                    Checkout
+                </button>
+            </form>
         
 
         </div>

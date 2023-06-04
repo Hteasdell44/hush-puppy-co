@@ -18,6 +18,7 @@ type Product {
   description: String!
   inventory: Int
   amountInCart: Int
+  stripeId: String
 }
 
 type BlogPost {

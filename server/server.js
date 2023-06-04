@@ -3,9 +3,11 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth.js');
+const stripe = require('stripe')('sk_test_51NEaXoLPaVHcGI2ULpBGbLY4RrTt54VQ4g0brtF78HWeh42S0lIdK3JJskWt6WknBvnplk6xecEl3IfNYuoQ0Kif004c209S9X');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+const Cart = require('./models/Cart.js');
 
 const PORT = process.env.PORT || 3001;
 
@@ -39,6 +41,28 @@ const startApolloServer = async () => {
     })
   })
 };
+
+app.post('/create-checkout-session', async (req, res) => {
+
+  let lineItemArr = [];
+
+  const cart =  await Cart.find().sort({ _id: -1 }).populate('productIds');
+  const products = cart[0].productIds;
+
+  {products.map((item, i) => (
+    lineItemArr[i] = {price: item.stripeId, quantity: item.amountInCart}
+))}
+
+  const session = await stripe.checkout.sessions.create({
+    line_items: lineItemArr,
+    mode: 'payment',
+    success_url: `http://localhost:3000/`,
+    cancel_url: `http://localhost:3000/cart`,
+    automatic_tax: {enabled: true},
+  });
+
+  res.redirect(303, session.url);
+});
   
 startApolloServer();
   
