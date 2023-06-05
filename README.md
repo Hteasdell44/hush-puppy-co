@@ -24,7 +24,7 @@ The source code for this project can be found [here](https://github.com/Hteasdel
 
 ## Usage
 
-The deployed Heroku Application can be found here.
+The deployed Heroku Application can be found [here](https://the-hush-puppy-co.herokuapp.com/).
 
 ## License
 
