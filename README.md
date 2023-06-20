@@ -26,6 +26,8 @@ The source code for this project can be found [here](https://github.com/Hteasdel
 
 The deployed Heroku Application can be found [here](https://the-hush-puppy-co.herokuapp.com/).
 
+Try adding products to cart, and proceeding to checkout. Or, make an account to view the gated profile functionality.
+
 ## License
 
 This project is not protected by a license.
