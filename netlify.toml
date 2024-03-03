@@ -2,11 +2,12 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  from = "/graphql"
+  to = "/.netlify/functions/graphql"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[[redirects]]
-  from = "/.netlify/functions/*"
-  to = "/index.html"
-  status = 200
