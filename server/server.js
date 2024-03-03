@@ -3,7 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth.js');
-const stripe = require('stripe')('sk_test_51NEaXoLPaVHcGI2ULpBGbLY4RrTt54VQ4g0brtF78HWeh42S0lIdK3JJskWt6WknBvnplk6xecEl3IfNYuoQ0Kif004c209S9X');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');

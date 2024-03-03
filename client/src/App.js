@@ -21,7 +21,7 @@ import Cart from "./pages/Cart";
 
 document.title = "Hush Puppy Co.";
 
-const httpLink = createHttpLink({uri: '/.netlify/functions/graphql'});
+const httpLink = createHttpLink({uri: 'https://thehushpuppyco.netlify.app/.netlify/functions/graphql'});
 
 const authLink = setContext((_, { headers }) => {
     
