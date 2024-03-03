@@ -19,6 +19,8 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
+server.graphqlPath = '/.netlify/functions/graphql';
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
