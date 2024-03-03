@@ -6,7 +6,7 @@ const Product = require('../../server/models/Product');
 const Cart = require('../../server/models/Cart');
 const BlogPost = require('../../server/models/BlogPost');
 const { signToken } = require('../../server/utils/auth');
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError } = require('apollo-server-lambda');
 
 // Connect to MongoDB (replace with your actual MongoDB connection string)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
