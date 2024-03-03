@@ -247,5 +247,28 @@ const server = new ApolloServer({
   introspection: true,
 });
 
-// The handler function for Netlify
-exports.handler = server.createHandler();
+exports.handler = async (event, context) => {
+  const handler = server.createHandler({
+    cors: {
+      origin: 'https://thehushpuppyco.netlify.app', // Replace with your front-end URL
+      credentials: true,
+    },
+  });
+
+  return new Promise((resolve, reject) => {
+    handler(event, context, (error, body) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve({
+          statusCode: 200,
+          body: body,
+          headers: {
+            'Access-Control-Allow-Origin': 'https://thehushpuppyco.netlify.app', // Replace with your front-end URL
+            'Access-Control-Allow-Credentials': true,
+          },
+        });
+      }
+    });
+  });
+};

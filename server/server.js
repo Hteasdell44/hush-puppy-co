@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
+const { ApolloServer, gql } = require('apollo-server-lambda');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth.js');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -30,17 +30,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-const startApolloServer = async () => {
-  await server.start();
-  server.applyMiddleware({ app });
-  
-  db.once('open', () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-    })
-  })
-};
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  });
+});
+
+exports.handler = server.createHandler(); // This line replaces the startApolloServer function
+
 
 app.post('/create-checkout-session', async (req, res) => {
 
@@ -64,5 +62,5 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
   
-startApolloServer();
+exports.handler = server.createHandler();
   
