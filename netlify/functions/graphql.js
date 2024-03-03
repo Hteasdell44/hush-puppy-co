@@ -1,7 +1,7 @@
 // netlify/functions/graphql.js
 const { ApolloServer, gql } = require('apollo-server-lambda');
 const mongoose = require('mongoose');
-const User = require('../models/User');
+const User = require('../../server/models/User');
 const Product = require('../models/Product');
 const Cart = require('../models/Cart');
 const BlogPost = require('../models/BlogPost');
