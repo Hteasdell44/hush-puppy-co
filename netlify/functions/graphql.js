@@ -2,10 +2,10 @@
 const { ApolloServer, gql } = require('apollo-server-lambda');
 const mongoose = require('mongoose');
 const User = require('../../server/models/User');
-const Product = require('../models/Product');
-const Cart = require('../models/Cart');
-const BlogPost = require('../models/BlogPost');
-const { signToken } = require('../utils/auth');
+const Product = require('../../server/models/Product');
+const Cart = require('../../server/models/Cart');
+const BlogPost = require('../../server/models/BlogPost');
+const { signToken } = require('../../server/utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
 // Connect to MongoDB (replace with your actual MongoDB connection string)
