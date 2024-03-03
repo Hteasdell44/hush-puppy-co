@@ -9,7 +9,7 @@ const { signToken } = require('../../server/utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
 // Connect to MongoDB (replace with your actual MongoDB connection string)
-mongoose.connect('mongodb+srv://hteasdell44:!_!Hteasde7612376@hushpuppydb.pbvbmbv.mongodb.net/?retryWrites=true&w=majority&appName=HushPuppyDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Define your GraphQL schema
 const typeDefs = gql`
