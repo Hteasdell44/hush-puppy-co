@@ -1,10 +1,61 @@
 import { useParams } from "react-router-dom";
-import { useQuery, useMutation, } from "@apollo/client";
-import { SPECIFIC_CART, SPECIFIC_PRODUCT } from "../../utils/queries";
-import { ADD_PRODUCT_TO_CART, CREATE_CART } from "../../utils/mutations";
+import { useQuery, useMutation, gql } from "@apollo/client";
+// import { SPECIFIC_CART, SPECIFIC_PRODUCT } from "../../utils/queries";
+// import { ADD_PRODUCT_TO_CART, CREATE_CART } from "../../utils/mutations";
 import { useEffect, useRef } from 'react';
 
 export default function ProductPage() {
+
+    const SPECIFIC_PRODUCT = gql`
+        query SpecificProduct($specificProductId: String!) {
+        specificProduct(id: $specificProductId) {
+            name
+            imageLink
+            price
+            description
+            inventory
+            amountInCart
+        }
+        }
+    `;
+
+    const SPECIFIC_CART = gql`
+        query SpecificCart($specificCartId: String!) {
+        specificCart(id: $specificCartId) {
+            _id
+            productIds {
+            _id
+            name
+            price
+            imageLink
+            amountInCart
+            }
+        }
+        }
+    `;
+    
+    const ADD_PRODUCT_TO_CART = gql`
+        mutation Mutation($cartId: ID!, $productId: ID!) {
+        addProductToCart(cartId: $cartId, productId: $productId) {
+            _id
+            productIds {
+            _id
+            amountInCart
+            }
+        }
+        }
+    `;
+
+    const CREATE_CART = gql`
+        mutation Mutation {
+        createCart {
+            _id
+            productIds {
+            _id
+            }
+        }
+        }
+    `;
 
     const { id } = useParams();
     const { data } = useQuery(SPECIFIC_PRODUCT, {variables: { specificProductId: id } });

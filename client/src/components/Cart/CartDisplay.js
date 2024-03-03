@@ -1,8 +1,67 @@
-import { useQuery, useMutation } from "@apollo/client";
-import { SPECIFIC_CART, SPECIFIC_PRODUCT } from "../../utils/queries";
-import { DECREASE_AMOUNT_IN_CART, INCREASE_AMOUNT_IN_CART, REMOVE_PRODUCT_FROM_CART } from "../../utils/mutations";
+import { useQuery, useMutation, gql } from "@apollo/client";
+// import { SPECIFIC_CART, SPECIFIC_PRODUCT } from "../../utils/queries";
+// import { DECREASE_AMOUNT_IN_CART, INCREASE_AMOUNT_IN_CART, REMOVE_PRODUCT_FROM_CART } from "../../utils/mutations";
 
 export default function CartDisplay() {
+
+    const SPECIFIC_CART = gql`
+        query SpecificCart($specificCartId: String!) {
+        specificCart(id: $specificCartId) {
+            _id
+            productIds {
+            _id
+            name
+            price
+            imageLink
+            amountInCart
+            }
+        }
+        }
+    `;
+
+    const SPECIFIC_PRODUCT = gql`
+        query SpecificProduct($specificProductId: String!) {
+        specificProduct(id: $specificProductId) {
+            name
+            imageLink
+            price
+            description
+            inventory
+            amountInCart
+        }
+        }
+    `;
+    const DECREASE_AMOUNT_IN_CART = gql`
+        mutation DecreaseAmountInCart($productId: ID!) {
+        decreaseAmountInCart(productId: $productId) {
+            _id
+            name
+            amountInCart
+        }
+        }
+    `;
+
+    const INCREASE_AMOUNT_IN_CART = gql`
+        mutation IncreaseAmountInCart($productId: ID!) {
+        increaseAmountInCart(productId: $productId) {
+            _id
+            name
+            amountInCart
+        }
+        }
+    `;
+
+    const REMOVE_PRODUCT_FROM_CART = gql`
+        mutation RemoveProductFromCart($cartId: ID!, $productId: ID!) {
+            removeProductFromCart(cartId: $cartId, productId: $productId) {
+            _id
+            productIds {
+                _id
+                amountInCart
+            }
+            }
+        }
+    `;
 
     const cartId = sessionStorage.getItem('cartId');
    

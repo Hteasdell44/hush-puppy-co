@@ -1,9 +1,20 @@
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { SPECIFIC_BLOG_POST } from "../../utils/queries";
+import { useQuery, gql } from "@apollo/client";
+// import { SPECIFIC_BLOG_POST } from "../../utils/queries";
 
 export default function BlogPage() {
 
+    const SPECIFIC_BLOG_POST = gql`
+    query SpecificBlogPost($specificBlogPostId: String!) {
+        specificBlogPost(id: $specificBlogPostId) {
+          _id
+          title
+          postDate
+          author
+          postBody
+        }
+      }
+    `;
     const { id } = useParams();
     const { data } = useQuery(SPECIFIC_BLOG_POST, {variables: { specificBlogPostId: id } });
     const blogInfo = data?.specificBlogPost || [];

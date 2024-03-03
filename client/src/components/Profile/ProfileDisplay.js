@@ -1,9 +1,21 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, gql } from "@apollo/client";
 import Auth from "../../utils/auth.js";
-import { UPDATE_USER } from "../../utils/mutations.js";
+// import { UPDATE_USER } from "../../utils/mutations.js";
 
 export default function ProfileDisplay() {
+
+  const UPDATE_USER = gql`
+    mutation Mutation($userId: ID!, $firstName: String, $lastName: String, $email: String) {
+      updateUser(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email) {
+        _id
+        email
+        firstName
+        lastName
+        password
+      }
+    }
+  `;
 
     const userData = Auth.getProfile();
     console.log(userData);

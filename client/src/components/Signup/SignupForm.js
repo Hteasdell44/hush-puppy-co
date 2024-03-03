@@ -1,13 +1,24 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, gql } from "@apollo/client";
 import Auth from "../../utils/auth.js";
-import { CREATE_USER } from "../../utils/mutations.js";
+// import { CREATE_USER } from "../../utils/mutations.js";
 
 export default function SignupForm(){
 
+  const CREATE_USER = gql`
+    mutation CreateUser($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+        createUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
+          token
+          user {
+            _id
+          }
+        }
+    }
+  `;
+
     if (Auth.loggedIn()) {
         window.location.assign("/profile");
-      }
+    }
       const [formState, setFormState] = useState({ firstName: "", lastName: "", email: "", password: "", passwordConfirm: "" });
       const [signupError, setSignupError] = useState("");
       const [createUser] = useMutation(CREATE_USER);

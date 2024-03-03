@@ -1,8 +1,18 @@
-import { useQuery } from "@apollo/client";
-import { ALL_BLOG_POSTS } from "../../utils/queries";
+import { useQuery, gql } from "@apollo/client";
+// import { ALL_BLOG_POSTS } from "../../utils/queries";
 
 export default function BlogDisplay() {
 
+    const ALL_BLOG_POSTS = gql`
+        query {
+            allBlogPosts {
+            _id
+            title
+            author
+            postDate
+            }
+        }
+        `;
     const { data } =  useQuery(ALL_BLOG_POSTS);
     const blogList = data?.allBlogPosts || [];
     console.log(blogList)
