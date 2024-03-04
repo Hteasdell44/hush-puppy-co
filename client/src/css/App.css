@@ -3,7 +3,6 @@
     top: 0;
     width: 100vw;
     height: 10vh;
-    border: 5px solid black;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -21,8 +20,10 @@
 #footer-container {
     background-color: #52B6FF;
     width: 100vw;
-    height: 7vh;
-    margin-top: 2.8vh;
+    height: fit-content;
+    margin-top: 5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 
 #footer-container ul {
@@ -41,6 +42,8 @@
     padding: 1vh;
     box-shadow: 3px 3px 3px gray;
 }
+
+
 
 #footer-container ul li a {
     text-decoration: none;
@@ -75,10 +78,42 @@ li a:hover {
         background-color: white;
         position: absolute;
         margin-top: 5vh;
-        margin-left: -.1vh;
+        top: -10;
         left: 0;
         position: fixed;
         padding-top: 4vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #navbar-links ul li {
+        font-size: x-large;
+        background-color: #52B6FF;
+        border-radius: 10px;
+        width: 80vw;
+        margin: 0 auto;
+        margin-top: 5vh;
+    }    
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    #profile-link {
+        display: block;
+    }
+
+    #navbar-links ul {
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+        position: absolute;
+        margin-top: 10vh;
+        top: 0;
+        left: 0;
+        position: fixed;
+        padding-top: 4vh;
+        display: flex;
+        flex-direction: column;
     }
 
     #navbar-links ul li {
@@ -95,7 +130,7 @@ li a:hover {
 
     #logo-link {
         text-align: center;
-        margin-left: -12vw;
+        margin-left: -16vw;
     }
 
     #logo {
@@ -112,7 +147,7 @@ li a:hover {
 
     #logo-link {
         text-align: center;
-        margin-left: -20vw;
+        margin-left: -33vw;
     }
 
     #logo {
@@ -124,7 +159,7 @@ li a:hover {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 410px) and (max-width: 768px) {
 
 
     #logo-link {
@@ -136,6 +171,7 @@ li a:hover {
         display: block;
         margin: 0 auto;
         min-width: 200px;
+        margin-left: -10vw;
     }
 }
 

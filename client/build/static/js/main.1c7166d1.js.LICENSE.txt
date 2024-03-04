@@ -4,12 +4,16 @@ object-assign
 @license MIT
 */
 
-/*! jQuery v3.7.0 | (c) OpenJS Foundation and other contributors | jquery.org/license */
+/*!
+  * Bootstrap v5.3.3 (https://getbootstrap.com/)
+  * Copyright 2011-2024 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
 
-/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+/*! jQuery v3.7.1 | (c) OpenJS Foundation and other contributors | jquery.org/license */
 
 /**
- * @remix-run/router v1.6.2
+ * @remix-run/router v1.15.2
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -20,7 +24,7 @@ object-assign
  */
 
 /**
- * React Router v6.11.2
+ * React Router v6.22.2
  *
  * Copyright (c) Remix Software Inc.
  *

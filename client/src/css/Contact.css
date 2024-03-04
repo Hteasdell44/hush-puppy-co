@@ -9,6 +9,8 @@ form {
     border: 2px solid black;
     border-radius: 10px;
     padding: 3vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     box-shadow: 5px 5px 5px gray;
 }
 
@@ -29,7 +31,7 @@ form textarea {
 #contact-container h2 {
     font-size: xx-large;
     margin-top: 15vh;
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
     text-align: center;
 }
 

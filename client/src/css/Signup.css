@@ -1,6 +1,6 @@
-#signup-container {
-    width: 100vw;
-    height: 100%;
+#signup-container form {
+    margin-bottom: 3vh;
+    height: fit-content;
 }
 
 #signup-container h2 {

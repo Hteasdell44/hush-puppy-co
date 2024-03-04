@@ -65,7 +65,7 @@ export default function LoginForm() {
 
                 <button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
 
-                <div class="text-center">
+                <div id="member-link" class="text-center">
                     <p>Not a Member? <a href="/signup">Register</a></p>
                     {loginError && (<div className="p-3 text-red-600">{loginError}</div>)}
                 </div>

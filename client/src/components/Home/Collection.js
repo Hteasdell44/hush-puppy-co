@@ -11,7 +11,7 @@ export default function Collection() {
 
             <div class="card-container">
 
-                <div class="row justify-content-center">
+                <div id="cards" class="row justify-content-center">
 
                         <div id="card-one" class="card col-10 col-lg-5">
                             <div class="card-body">

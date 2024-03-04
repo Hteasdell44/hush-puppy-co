@@ -1,6 +1,7 @@
 #content-container {
     width: 100vw;
-    height: 85vh;
+    height: fit-content;
+    min-height: 85vh;
 }
 
 #content-container h2 {
@@ -12,7 +13,7 @@
 
 #text-container {
     width: 80vw;
-    height: 70vh;
+    min-height: fit-content;
     margin: 0 auto;
     background-color: #52B6FF;
     border: 2px solid black;
@@ -31,28 +32,18 @@
 }
 
 #text-container img {
-    width: 30vw;
+    width: 60vw;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
+    margin-bottom: 5vh;
 }
 
-@media screen and (max-width: 550px) {
-    #text-container img {
-        display: none;
-    }
-}
 
 @media screen and (min-width: 1140px) {
     
     #text-container img {
         width: 20vw;
-    }
-}
-
-@media screen and (max-height: 720px) {
-    #text-container img {
-        display: none;
     }
 }
 

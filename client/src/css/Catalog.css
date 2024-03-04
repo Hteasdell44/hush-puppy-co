@@ -17,12 +17,13 @@
     width: 90vw;
     height: 100%;
     margin: auto;
-    margin-bottom: 2vh;
+    margin-bottom: 5vh;
     border-radius: 10px;
     border: 2px solid black;
     position: relative;
     text-align: center;
     box-shadow: 5px 5px 5px gray;
+
 }
 
 .product-card:hover {
@@ -42,7 +43,7 @@
     max-width: 180px;
     margin: auto;
     margin-top: 2vh;
-    margin-bottom: 14vh;
+    margin-bottom: 20vh;
 }
 
 .product-info h5 {

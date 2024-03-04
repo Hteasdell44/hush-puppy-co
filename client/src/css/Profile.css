@@ -17,12 +17,15 @@
     display: block;
     margin: auto;
     margin-bottom: 3vh;
+    border-radius: 10px;
 }
 
 #profile-container div form {
     width: 60vw;
     border: none;
     background-color: #52B6FF;
+    height: fit-content;
+    margin-bottom: 3vh;
 }
 
 #profile-container div p {
@@ -34,6 +37,7 @@
     
     background-color: white;
     color: #52B6FF;
+    border-radius: 10px;
 }
 
 #profile-container div input {

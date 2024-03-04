@@ -111,6 +111,8 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     text-align: center;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
 }
 
 .quantity-form input {

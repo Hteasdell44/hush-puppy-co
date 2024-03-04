@@ -18,13 +18,12 @@
     height: 15vh;
     min-height: 120px;
     margin: auto;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
     border-radius: 10px;
     border: 2px solid black;
     position: relative;
     text-align: center;
     box-shadow: 5px 5px 5px gray;
-    background-color: lightgray;
 }
 
 .blog-card:hover {

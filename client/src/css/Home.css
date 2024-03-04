@@ -7,12 +7,9 @@ li {
     font-size: 1.2vw;
 }
 
-#shopping-cart-button {
-    margin-right: 1vw;
-}
-
+#shopping-cart-button,
 #profile-icon {
-    margin-right: 1.5vw;
+    margin-right: 1vw;
 }
 
 @media screen and (max-width: 992px) {
@@ -21,10 +18,15 @@ li {
     }
 }
 
+/* Collection Styles */
+
 #collection-container {
-    height: 90vh;
+    height: fit-content;
     width: 100vw;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #collection-container h2 {
@@ -41,7 +43,6 @@ li {
 }
 
 .card-container .card {
-    
     margin-top: 5vh;
     text-align: center;
     border: 2px solid black;
@@ -49,11 +50,10 @@ li {
 }
 
 .card-container .card:hover {
-    scale: 1.025;
+    transform: scale(1.025);
 }
 
 .card-container .card .btn {
-    
     background-color: #52B6FF;
     color: white;
     border: none;
@@ -63,15 +63,14 @@ li {
 
 .card-container #card-one {
     margin-right: 1vw;
+    height: fit-content;
 }
 
 .card-container .card .card-body h5 {
-    
     margin-top: 3vh;
 }
 
 .card-container .card .card-body img {
-    
     width: 15vw;
 }
 
@@ -80,7 +79,7 @@ li {
     border: none;
     border-radius: 10px;
     color: white;
-    margin-top: 3vh;
+    margin-top: 5vh;
     width: 40vw;
     box-shadow: 5px 5px 5px gray;
     text-align: center;
@@ -88,12 +87,15 @@ li {
 }
 
 #view-all-products-button:hover {
-    scale: 1.025;
+    transform: scale(1.025);
 }
 
+/* Testimonials Styles */
+
 #testimonials-container {
+    min-height: 90vh;
+    height: fit-content;
     width: 100vw;
-    
     background-color: #52B6FF;
 }
 
@@ -103,33 +105,31 @@ li {
     margin-bottom: 3vh;
 }
 
-#testimonials-container .row {
-    margin-right: 0;
-}
+
 
 #testimonials-container .card {
     margin-bottom: 5vh;
     width: 85vw;
-    height: 12vh;
+    height: fit-content;
+    display: flex;
     box-shadow: 5px 5px 5px gray;
 }
 
 .testimonial-pic {
     width: 8vw;
     max-width: 220px;
-    margin-right: 2vw;
-    margin-bottom: 1vh;
 }
 
 .testimonial-vertical-line {
     width: 3px;
     background-color: black;
-    height: 8vh;
     margin-right: 2vw;
+    margin-left: 2vw;
 }
 
-#list-form-container {
+/* List Form Styles */
 
+#list-form-container {
     width: 100vw;
 }
 
@@ -160,7 +160,7 @@ li {
 }
 
 #list-form-container form button:hover {
-    scale: 1.025;
+    transform: scale(1.025);
 }
 
 #list-form-container form .form-control {
@@ -168,60 +168,61 @@ li {
 }
 
 #list-form-container img {
-    width: 50vw;
+    width: 80%;
     max-width: 400px;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
-    margin-top: 7vh;
+    margin-top: 5vh;
     box-shadow: 5px 5px 5px gray;
 }
 
-/* Mobile Media Queries */
+
+
+/* Media Queries */
 
 @media screen and (max-width: 992px) {
-    .card-container {
-        margin-left: 3vw;
-        margin-top: -3vh;
+    #testimonials-container {
+        height: fit-content;
     }
 
     .testimonial-pic {
-        margin-left: -1vh;
+        width: 30vw;
+        display: block;
+        margin: auto;
+        margin-right: 2vw;
     }
 
+    #card-one {
+        margin-top: 0;
+    }
 
+    #list-form-container {
+        height: fit-content;
+    
+    }
 }
 
-/* Desktop Media Queries */
-
 @media screen and (min-width: 992px) {
-
     #view-all-products-button {
         margin-top: 6vh;
         padding-top: 1vh;
         padding-bottom: 1vh;
-        margin-bottom: -5vh;
+        margin-bottom: 5vh;
     }
-    
+
     #testimonials-container .card {
         margin-top: 7vh;
         margin-bottom: 5vh;
         margin-right: 3vw;
         width: 27vw;
         display: flex;
-        height: 25vh;
+        height: fit-content;
     }
-    
-    .testimonial-pic {
-        width: 10vw;
-        margin-right: 2vw;
-    }
-    
+
     .testimonial-vertical-line {
         width: 3px;
         background-color: black;
-        height: 20vh;
-        margin-right: 2vw;
     }
 
     #testimonials-container .card .card-body p {
@@ -234,19 +235,13 @@ li {
     #list-form-container img {
         width: 25vw;
     }
-
 }
 
-/* Tablet Media Queries */
-
 @media screen and (min-width: 768px) and (max-width: 992px) {
-
     #view-all-products-button {
-
         padding-top: 1vh;
         padding-bottom: 1vh;
     }
-
 
     #testimonials-container .card .card-body p {
         font-size: 3vw;
@@ -261,13 +256,11 @@ li {
 }
 
 @media screen and (min-width: 550px) and (max-width: 992px) {
-
     #collection-container {
         height: 100vh;
     }
 
     #view-all-products-button {
-
         margin-top: 2vh;
     }
 }
@@ -278,34 +271,41 @@ li {
     }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 992px) {
+    .card-container .card .card-body img {
+        width: 60vw;
+    }
+}
 
-
+@media screen and (max-width: 992px) {
     #list-form-container img {
         width: 50vw;
     }
 
-    #collection-container {
-        height: 105vh;
-    }
-
+    #collection-container,
     .card-container .card {
-    
-        height: 40vh;
+        height: fit-content;
     }
 
     .card-container .card .card-body h5 {
-    
         font-size: 3vh;
         margin-top: 2vh;
     }
 
     .card-container .card .card-body p {
-    
         font-size: 2vh;
     }
 
     #testimonials-container .card .card-body p {
         font-size: 3.5vw;
+        text-align: center;
+        align-self: center;
+    }
+
+    #view-all-products-button {
+        margin-bottom: 5vh;
+        margin-top: 5vh;
+        padding: 1vh;
     }
 }
+
