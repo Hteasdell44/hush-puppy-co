@@ -40,6 +40,11 @@
     border-radius: 10px;
 }
 
+#profile-container div form button:hover {
+    
+    scale: 1.025;
+}
+
 #profile-container div input {
     width: 1;
 }
@@ -52,6 +57,13 @@
     /* margin-bottom: 5vh; */
     border: none;
     background-color: #52B6FF;
+    color: white;
     padding: 1.5vh;
     border-radius: 10px;
 }
+
+#profile-container button:hover {
+   background-color: red;
+   scale: 1.025;
+}
+

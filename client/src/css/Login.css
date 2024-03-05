@@ -16,6 +16,14 @@
     min-height: 55%
 }
 
+#login-container form button {
+    border: none;
+}
+
+#login-container form button:hover {
+    scale: 1.025;
+}
+
 #member-link p {
     margin-top: 3vh;
 }

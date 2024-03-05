@@ -16,7 +16,7 @@ export default function Collection() {
                         <div id="card-one" class="card col-10 col-lg-5">
                             <div class="card-body">
                                 <img src={CalmTreatsPhoto} />
-                                <h5 class="card-title">Product Title #1</h5>
+                                <h5 class="card-title">Calm Treats</h5>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <a href="/catalog/65e552773b710b36b592bbc4" class="btn btn-primary">Learn More</a>
                             </div>
@@ -25,7 +25,7 @@ export default function Collection() {
                         <div class="card col-10 col-lg-5">
                             <div class="card-body">
                                 <img src={CalmToyPhoto} />
-                                <h5 class="card-title">Product Title #2</h5>
+                                <h5 class="card-title">The Hush Puppy</h5>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <a href="/catalog/65e552773b710b36b592bbc5" class="btn btn-primary">Learn More</a>
                             </div>

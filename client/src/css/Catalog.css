@@ -46,8 +46,8 @@
     width: 35vw;
     max-width: 180px;
     margin: auto;
-    margin-top: 2vh;
-    margin-bottom: 12vh;
+    margin-top: 3vh;
+    padding-bottom: 10vh;
 }
 
 .product-info h5 {

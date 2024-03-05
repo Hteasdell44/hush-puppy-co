@@ -112,6 +112,10 @@ li {
     background-color: #52B6FF;
 }
 
+#testimonials-container .row {
+    margin-right: 0;
+}
+
 #testimonials-container h2 {
     text-align: center;
     padding-top: 5vh;
@@ -127,6 +131,10 @@ li {
     height: fit-content;
     display: flex;
     box-shadow: 5px 5px 5px gray;
+}
+
+#testimonials-container .card-body {
+    width: fit-content;
 }
 
 .testimonial-pic {
@@ -159,9 +167,8 @@ li {
     margin: 0 auto;
     border: 2px solid black;
     box-shadow: 5px 5px 5px gray;
-    padding: 3vh;
     border-radius: 10px;
-    height: 100%;
+    min-height: fit-content;
 }
 
 #list-form-container form label {

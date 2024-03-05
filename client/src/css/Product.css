@@ -1,6 +1,6 @@
 #product-display-container {
     width: 100vw;
-    min-height: 75.25vh;
+    min-height: 80vh;
     text-align: center;
 }
 
@@ -17,6 +17,7 @@
     margin: auto;
     margin-top: 3vh;
     background-color: #52B6FF;
+    color: white;
     border: none;
     padding: 1vh;
     border-radius: 10px;

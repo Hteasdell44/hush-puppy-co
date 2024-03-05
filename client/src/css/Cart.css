@@ -81,8 +81,14 @@
     margin-top: 3vh;
     margin-bottom: 1vh;
     background-color: #52B6FF;
+    color: white;
     border-radius: 10px;
     padding: 1vh;
+    border: none;
+}
+
+.continue-shopping:hover {
+    scale: 1.025;
 }
 
 #checkout-button {

@@ -9,3 +9,11 @@
     margin-bottom: 5vh;
     text-align: center;
 }
+
+#signup-container form button {
+    border: none;
+}
+
+#signup-container form button:hover {
+    scale: 1.025;
+}
