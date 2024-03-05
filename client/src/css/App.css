@@ -2,7 +2,8 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 10vh;
+    min-height: 10vh;
+    height: fit-content;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -81,7 +82,6 @@ li a:hover {
         top: -10;
         left: 0;
         position: fixed;
-        padding-top: 4vh;
         display: flex;
         flex-direction: column;
     }

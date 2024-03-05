@@ -12,6 +12,14 @@ li {
     margin-right: 1vw;
 }
 
+#hero-container h1 {
+    font-size: xxx-large;
+}
+
+#hero-container h5 {
+    font-size: x-large;
+}
+
 @media screen and (max-width: 992px) {
     #profile-icon {
         display: none;
@@ -32,6 +40,7 @@ li {
 #collection-container h2 {
     text-align: center;
     margin-top: 5vh;
+    font-size: xxx-large;
 }
 
 #collection-container .row {
@@ -59,6 +68,8 @@ li {
     border: none;
     box-shadow: 5px 5px 5px gray;
     margin-bottom: 2vh;
+    font-size: x-large;
+    width: 60%;
 }
 
 .card-container #card-one {
@@ -68,6 +79,7 @@ li {
 
 .card-container .card .card-body h5 {
     margin-top: 3vh;
+    font-size: xx-large;
 }
 
 .card-container .card .card-body img {
@@ -80,10 +92,11 @@ li {
     border-radius: 10px;
     color: white;
     margin-top: 5vh;
-    width: 40vw;
+    width: 60vw;
     box-shadow: 5px 5px 5px gray;
     text-align: center;
     text-decoration: none;
+    font-size: x-large;
 }
 
 #view-all-products-button:hover {
@@ -103,6 +116,7 @@ li {
     text-align: center;
     padding-top: 5vh;
     margin-bottom: 3vh;
+    font-size: xxx-large;
 }
 
 
@@ -137,6 +151,7 @@ li {
     text-align: center;
     padding-top: 5vh;
     margin-bottom: 3vh;
+    font-size: xxx-large;
 }
 
 #list-form-container form {
@@ -151,12 +166,14 @@ li {
 
 #list-form-container form label {
     margin-bottom: 1vh;
+    font-size: x-large;
 }
 
 #list-form-container form button {
     width: 100%;
     background-color: #52B6FF;
     color: white;
+    font-size: x-large;
 }
 
 #list-form-container form button:hover {
@@ -244,7 +261,7 @@ li {
     }
 
     #testimonials-container .card .card-body p {
-        font-size: 3vw;
+        font-size: larger;
         text-align: center;
         width: 100%;
         margin: auto;
@@ -288,16 +305,16 @@ li {
     }
 
     .card-container .card .card-body h5 {
-        font-size: 3vh;
+        font-size: xx-large;
         margin-top: 2vh;
     }
 
     .card-container .card .card-body p {
-        font-size: 2vh;
+        font-size: larger;
     }
 
     #testimonials-container .card .card-body p {
-        font-size: 3.5vw;
+        font-size: larger;
         text-align: center;
         align-self: center;
     }

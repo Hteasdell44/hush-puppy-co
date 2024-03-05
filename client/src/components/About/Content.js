@@ -6,7 +6,7 @@ export default function Content() {
 
             <div id="text-container">
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et malesuada fames ac. Fringilla ut morbi tincidunt augue interdum velit euismod. Nunc non blandit massa enim nec. Quis lectus nulla at volutpat diam. Id consectetur purus ut faucibus pulvinar. Fusce id velit ut tortor. Mattis rhoncus urna neque viverra justo nec ultrices.
+                Welcome to The Hush Puppy, a haven for canine companions dealing with separation anxiety. As a devoted dog owner, I understand the challenges of leaving a furry friend at home. Our community is a supportive space where we share experiences, tips, and resources to help our beloved pets cope with solitude. Together, we navigate the journey of understanding and managing separation anxiety, ensuring our dogs feel secure even when we're apart. Join us in fostering a compassionate environment for both pups and their devoted owners, because every wagging tail deserves a calm and contented heart.
                 </p>
                 <img src={GenericPupTwo} />
             </div>

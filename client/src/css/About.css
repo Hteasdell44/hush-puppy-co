@@ -15,7 +15,7 @@
     width: 80vw;
     min-height: fit-content;
     margin: 0 auto;
-    background-color: #52B6FF;
+    
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
@@ -24,7 +24,7 @@
 #text-container p {
     font-size: x-large;
     text-align: center;
-    color: white;
+ 
     padding-top: 5vh;
     padding-right: 3vw;
     padding-left: 3vw;

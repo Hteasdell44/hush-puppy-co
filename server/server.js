@@ -56,8 +56,8 @@ app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItemArr,
     mode: 'payment',
-    success_url: `http://localhost:3000/`,
-    cancel_url: `http://localhost:3000/cart`,
+    success_url: `https://the-hush-puppy-co.herokuapp.com/`,
+    cancel_url: `https://the-hush-puppy-co.herokuapp.com/cart`,
     automatic_tax: {enabled: true},
   });
 
