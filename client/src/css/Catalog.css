@@ -30,6 +30,10 @@
     scale: 1.025;
 }
 
+#first-product img {
+    margin-top: 4vh;
+}
+
 
 #card-header {
     background-color: #52B6FF;

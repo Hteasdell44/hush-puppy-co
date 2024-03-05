@@ -15,9 +15,9 @@ export default function CatalogDisplay() {
 
             <div id="product-card-container" className="d-flex flex-row flex-wrap">
 
-                {productList && productList.map((product) => (
+                {productList && productList.map((product, index) => (
 
-                    <a href={`/catalog/${product._id}`} className="col-10 col-md-5 col-xl-4 col-lg-4 product-card">
+                    <a href={`/catalog/${product._id}`} className="col-10 col-md-5 col-xl-4 col-lg-4 product-card" id={index === 0 ? "first-product" : undefined}>
 
                         <div key={product._id}>
 
