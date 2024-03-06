@@ -106,7 +106,7 @@ export default function CartDisplay() {
 
             <button className="continue-shopping" onClick={directToProducts}>Continue Shopping</button>
             <form action="/create-checkout-session" method="POST">
-                <button type="submit">
+                <button type="submit" id="to-stripe">
                     Checkout
                 </button>
             </form>

@@ -61,6 +61,7 @@
 .delete-button {
     position: relative;
     width: 25%;
+    min-width: fit-content;
     display: block;
     margin: auto;
     margin-bottom: 2vh;
@@ -76,6 +77,16 @@
     scale: 1.025;
 }
 
+#to-stripe {
+    border: none;
+    color: white;
+    font-size: x-large;
+}
+
+#to-stripe:hover {
+    scale: 1.025;
+}
+
 .continue-shopping {
     width: 60%;
     display: block;
@@ -88,6 +99,7 @@
     padding: 1vh;
     border: none;
     font-size: x-large;
+    box-shadow: 3px 3px 3px gray;
 }
 
 .continue-shopping:hover {
@@ -139,6 +151,7 @@
 #cart-container form {
     border: none;
     box-shadow: none;
+    text-align: center;
 }
 
 #cart-container form button {
