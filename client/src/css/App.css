@@ -10,9 +10,17 @@
     text-align: center;
 }
 
+#navbar-links ul li a {
+    font-size: larger;
+}
+
+#logo-link {
+    flex-grow: 1; /* Allows the logo to take up the available space */
+   text-align: center;
+}
+
 #logo {
     width: 25vw;
-    display: block;
     margin: 0 auto;
     min-width: 200px;
     
@@ -35,7 +43,7 @@
 
 #footer-container ul li {
     
-    font-size: medium;
+    font-size: larger;
     display: inline;
     margin-right: 3vw;
     background-color: white;
@@ -136,13 +144,14 @@ li a:hover {
 
     #logo-link {
         text-align: center;
-        margin-left: -16vw;
+        /* margin-left: -16vw; */
     }
 
     #logo {
         width: 25vw;
         max-width: 270px;
-        display: block;
+        position: relative;
+        left: -14.5%;
         margin: 0 auto;
         min-width: 200px;
     }
@@ -153,7 +162,7 @@ li a:hover {
 
     #logo-link {
         text-align: center;
-        margin-left: -33vw;
+        /* margin-left: -33vw; */
     }
 
     #logo {
@@ -170,14 +179,14 @@ li a:hover {
 
     #logo-link {
         text-align: center;
-        margin-left: -10vw;
+        /* margin-left: -10vw; */
     }
 
     #logo {
         display: block;
         margin: 0 auto;
         min-width: 200px;
-        margin-left: -10vw;
+        /* margin-left: -10vw; */
     }
 }
 

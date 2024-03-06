@@ -5,19 +5,25 @@
 }
 
 #login-container h2 {
-    font-size: xx-large;
+    font-size: xxx-large;
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
 }
+
 
 #login-container form {
     height: fit-content;
     min-height: 55%
 }
 
+#login-container form label {
+    font-size: x-large;
+}
+
 #login-container form button {
     border: none;
+    font-size: x-large;
 }
 
 #login-container form button:hover {
@@ -25,5 +31,6 @@
 }
 
 #member-link p {
+    font-size: large;
     margin-top: 3vh;
 }

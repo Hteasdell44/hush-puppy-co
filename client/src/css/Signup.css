@@ -4,16 +4,25 @@
 }
 
 #signup-container h2 {
-    font-size: xx-large;
+    font-size: xxx-large;
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
 }
 
+#signup-container form label {
+    font-size: x-large;
+}
+
 #signup-container form button {
     border: none;
+    font-size: x-large;
 }
 
 #signup-container form button:hover {
     scale: 1.025;
+}
+
+p {
+    font-size: large;
 }

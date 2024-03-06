@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.740228a1.css",
-    "main.js": "/static/js/main.f764c2b3.js",
+    "main.css": "/static/css/main.c674d350.css",
+    "main.js": "/static/js/main.3252f0a9.js",
     "static/media/calm-treats.jpeg": "/static/media/calm-treats.343c88bf241f80af4da1.jpeg",
     "static/media/generic-pup-two.jpeg": "/static/media/generic-pup-two.e66e05dbf4323d9298f3.jpeg",
     "static/media/thpc-logo.png": "/static/media/thpc-logo.87d39afe1fe875909a79.png",
@@ -9,11 +9,11 @@
     "static/media/placeholder-image.png": "/static/media/placeholder-image.1bab0212315e7bd755b2.png",
     "static/media/generic-pup.jpeg": "/static/media/generic-pup.b4f2b5dc6ccb472ca1b8.jpeg",
     "index.html": "/index.html",
-    "main.740228a1.css.map": "/static/css/main.740228a1.css.map",
-    "main.f764c2b3.js.map": "/static/js/main.f764c2b3.js.map"
+    "main.c674d350.css.map": "/static/css/main.c674d350.css.map",
+    "main.3252f0a9.js.map": "/static/js/main.3252f0a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.740228a1.css",
-    "static/js/main.f764c2b3.js"
+    "static/css/main.c674d350.css",
+    "static/js/main.3252f0a9.js"
   ]
 }

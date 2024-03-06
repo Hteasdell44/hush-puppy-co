@@ -4,7 +4,7 @@
 }
 
 #cart-container h2 {
-    font-size: xx-large;
+    font-size: xxx-large;
     margin-top: 15vh;
     margin-bottom: 5vh;
     text-align: center;
@@ -55,6 +55,7 @@
 
 #cart-container h3 {
     margin-top: 25vh;
+    font-size: xx-large;
 }
 
 .delete-button {
@@ -68,6 +69,7 @@
     border: none;
     border-radius: 10px;
     box-shadow: 3px 3px 3px gray;
+    font-size: x-large;
 }
 
 .delete-button:hover {
@@ -85,6 +87,7 @@
     border-radius: 10px;
     padding: 1vh;
     border: none;
+    font-size: x-large;
 }
 
 .continue-shopping:hover {
@@ -99,6 +102,7 @@
     background-color: #52B6FF;
     border-radius: 10px;
     padding: 1vh;
+    font-size: x-large;
 }
 
 .quantity-form-container {

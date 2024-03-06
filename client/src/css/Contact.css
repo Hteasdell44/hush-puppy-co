@@ -16,7 +16,7 @@ form {
 }
 
 form label {
-    font-size: large;
+    font-size: x-large;
 }
 
 form button {
@@ -26,11 +26,11 @@ form button {
 }
 
 form textarea {
-    height: 25vh;
+    height: 20vh;
 }
 
 #contact-container h2 {
-    font-size: xx-large;
+    font-size: xxx-large;
     margin-top: 15vh;
     margin-bottom: 4vh;
     text-align: center;

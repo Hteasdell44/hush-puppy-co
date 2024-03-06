@@ -16,6 +16,15 @@ li {
     font-size: xxx-large;
 }
 
+#hero-container a {
+    background-color: white;
+    color: black;
+}
+
+#hero-container a:hover {
+    scale: 1.025;
+}
+
 #hero-container h5 {
     font-size: x-large;
 }
