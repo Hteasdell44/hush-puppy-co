@@ -5,8 +5,7 @@
 
 The Hush Puppy Co. is a fully functional eCommerce website with JWT Authentication, Stripe Checkout, and a blog developed with the MERN stack and GraphQL. This project was styled with Bootstrap and regular CSS. 
 
-![Screenshot 2023-05-26 at 11 00 18 AM](https://github.com/Hteasdell44/hush-puppy-co/assets/48537443/84e89da0-b0ff-476b-96fd-9e2dad526a37)
-
+![Screen Shot 2024-03-05 at 10 11 54 PM](https://github.com/Hteasdell44/hush-puppy-co/assets/48537443/8cb3f2fc-6bb1-4194-a967-36f4230e3254)
 
 ## Table of Contents
 
@@ -27,6 +26,8 @@ The source code for this project can be found [here](https://github.com/Hteasdel
 The deployed Heroku Application can be found [here](https://the-hush-puppy-co.herokuapp.com/).
 
 Try adding products to cart, and proceeding to checkout. Or, make an account to view the gated profile functionality.
+
+![Screen Shot 2024-03-05 at 10 12 16 PM](https://github.com/Hteasdell44/hush-puppy-co/assets/48537443/076132a2-ddce-4eaf-a57f-a98fff27f497)
 
 ## License
 
