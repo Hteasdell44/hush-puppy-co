@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
+import BreedIdentifier from "./pages/BreedIdentifier";
 
 document.title = "Hush Puppy Co.";
 
@@ -75,7 +76,9 @@ const App = () => {
 
                         <Route path="/profile" element={<Profile />} />
                         
-                        <Route path="/cart" element={<Cart />} />                    
+                        <Route path="/cart" element={<Cart />} /> 
+
+                        <Route path="/breed-identifier" element={<BreedIdentifier />} />                    
 
                     </Routes>
 

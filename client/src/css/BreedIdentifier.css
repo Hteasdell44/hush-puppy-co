@@ -1,0 +1,21 @@
+#breed-identifier-container {
+    
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  #breed-identifier-container h2 {
+
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    text-align: center;
+    font-size: xxx-large;
+}
+
+#upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
