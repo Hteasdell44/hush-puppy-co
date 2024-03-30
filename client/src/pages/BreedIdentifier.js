@@ -18,6 +18,8 @@ const BreedIdentifier = () => {
   const [allBreeds, setAllBreeds] = useState([]);
   const [showDatasetSummary, setShowDatasetSummary] = useState(false);
   const [imageSizes, setImageSizes] = useState([]);
+  const [imageCounts, setImageCounts] = useState([]);
+  const [dogBreeds, setDogBreeds] = useState([]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -117,18 +119,143 @@ const BreedIdentifier = () => {
       });
     };
 
+    const plotHistogram = (data) => {
+        const ctx = document.getElementById('imageSizesHistogram');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.map((size, index) => `Image ${index + 1}`),
+            datasets: [{
+              label: 'Image Sizes',
+              data: data,
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                title: {
+                  display: true,
+                  text: 'Image Size (bytes)'
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Image Number'
+                }
+              }
+            }
+          }
+        });
+      };
+
+        const plotBarChart = (imageCounts) => {
+            const labels = imageCounts.map(data => data.breed);
+            const data = imageCounts.map(data => data.count);
+        
+            const ctx = document.getElementById('image-count-chart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Number of Images',
+                        data: data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Change axis to y-axis for better visualization
+                    scales: {
+                        y: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Dog Breeds'
+                            }
+                        },
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Images'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Number of Images: ${context.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        const plotPieChart = (breedsData) => {
+            const breedLabels = breedsData.map(breedData => breedData.breed);
+            const breedCountsData = breedsData.map(breedData => breedData.count);
+        
+            const ctx = document.getElementById('breedPieChart');
+            new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: breedLabels,
+                datasets: [{
+                  label: 'Dog Breeds',
+                  data: breedCountsData,
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    // Add more colors as needed
+                  ],
+                  hoverOffset: 4
+                }]
+              }
+            });
+        };
+
     useEffect(() => {
       // Fetch image sizes from the server
-      axios.get('/api/image-sizes')
-        .then(response => {
-          console.log(response.data.imageSizes)
-          // setImageSizes(response.data.imageSizes);
-          // plotHistogram(response.data.imageSizes);
-        })
-        .catch(error => {
-          console.error('Error fetching image sizes:', error);
+        axios.get('/api/image-sizes')
+            .then(response => {
+            
+            setImageSizes(response.data.imageSizes);
+            plotHistogram(imageSizes);
+            })
+            .catch(error => {
+            console.error('Error fetching image sizes:', error);
         });
-    }); // Fetch image sizes only once when the component mounts
+
+        axios.get('/api/image-count-per-breed')
+            .then(response => {
+                setImageCounts(response.data.imageCounts);
+                plotBarChart(response.data.imageCounts);
+            })
+            .catch(error => {
+                console.error('Error fetching image counts per breed:', error);
+        });
+
+        axios.get('/api/dog-breeds')
+            .then(response => {
+                setDogBreeds(response.data.dogBreeds);
+                plotPieChart(response.data.dogBreeds);
+            })
+            .catch(error => {
+                console.error('Error fetching dog breeds:', error);
+        });
+
+    }, []); 
   
 
   return (
@@ -190,9 +317,27 @@ const BreedIdentifier = () => {
 
         {showDatasetSummary && (
             <div>
-                <h3>Dataset Summary</h3>
-                <p>Total records: 20,580</p>
-                <p>Unique breeds: 103</p>
+                <div>
+                    <h3>Dataset Summary</h3>
+                    <p>Total records: 20,580</p>
+                    <p>Unique breeds: 103</p>
+                </div>
+
+                <div>
+                    <h3>Distribution of Image Sizes</h3>
+                    {/* <canvas id="imageSizesHistogram"></canvas> */}
+                </div>
+
+                <div>
+                    <h3>Image Count By Breed</h3>
+                    <canvas id="image-count-chart"></canvas>
+                </div>
+
+                <div>
+                    <h3>Dog Breed Distribution</h3>
+                    {/* <canvas id="breedPieChart"></canvas> */}
+                </div>
+
             </div>
         )}
 

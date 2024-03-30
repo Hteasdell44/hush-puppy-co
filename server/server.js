@@ -29,11 +29,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-// Serve the React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
-
 // Function to recursively traverse the dataset directory and extract dog breeds
 function extractDogBreeds(datasetPath) {
   const breeds = [];
@@ -51,7 +46,6 @@ function extractDogBreeds(datasetPath) {
   return breeds;
 }
 
-
 // Specify the path to the dataset directory
 const datasetPath = path.join(__dirname, '../breed-dataset', 'images', 'Images');
 
@@ -59,10 +53,14 @@ const datasetPath = path.join(__dirname, '../breed-dataset', 'images', 'Images')
 const dogBreeds = extractDogBreeds(datasetPath);
 
 // Print the list of dog breeds
+/**
+ 
 console.log('List of Dog Breeds:');
 for (i = 0; i < dogBreeds.length; i++) {
   console.log(dogBreeds[i]);
 }
+
+*/
 
 // Function to format breed names
 function formatBreedName(breedName) {
@@ -678,7 +676,6 @@ function provideDecisionSupport(breed) {
     // Remove underscores and convert to title case
     const formattedBreed = breed.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     
-    
     // Retrieve recommendation for the breed
     const recommendation = recommendations[formattedBreed].description;
     const productRecommendation = recommendations[formattedBreed].product;
@@ -686,8 +683,7 @@ function provideDecisionSupport(breed) {
     
     // Return recommendation or default message if breed not found
     return {recommendation, productRecommendation, productRecommendationPrice};
-    }
-
+}
 
 async function predictBreed(imageData) {
   // Load the MobileNet model
@@ -751,6 +747,100 @@ app.post('/api/correct-breed', async (req, res) => {
   }
 });
 
+// Define a route handler for fetching image sizes
+app.get('/api/image-sizes', async (req, res) => {
+  try {
+    // Define the path to your image directory
+    const imagesDir = path.join(__dirname, '..', 'breed-dataset', 'images', 'Images');
+
+    // Read the subdirectories (breed names) in the images directory
+    const breedDirectories = await fs.promises.readdir(imagesDir);
+
+    // Remove the .DS_Store file stored first in the array.
+    breedDirectories.shift();
+
+    // Initialize an array to store image sizes
+    const imageSizes = [];
+
+    // Iterate over each breed directory
+    for (const breedDir of breedDirectories) {
+      const breedDirPath = path.join(imagesDir, breedDir);
+
+      // Read the list of image files in the breed directory
+      const imageFiles = await fs.promises.readdir(breedDirPath);
+
+      // Get the size of each image file and add it to the imageSizes array
+      for (const imageFile of imageFiles) {
+        const imagePath = path.join(breedDirPath, imageFile);
+        const stats = await fs.promises.stat(imagePath);
+        imageSizes.push(stats.size);
+      }
+    }
+    res.json({imageSizes});
+  } catch (error) {
+    console.error('Error fetching image sizes:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/api/image-count-per-breed', async (req, res) => {
+  try {
+    const imagesDir = path.join(__dirname, '..', 'breed-dataset', 'images', 'Images');
+    const breedDirectories = await fs.promises.readdir(imagesDir);
+    breedDirectories.shift();
+
+    const imageCountsPerBreed = breedDirectories.map(async (breedDir) => {
+      const breedDirPath = path.join(imagesDir, breedDir);
+      const imageFiles = await fs.promises.readdir(breedDirPath);
+      const breedName = breedDir.split('-')[1].replace(/_/g, ' '); // Extract breed name
+      return {
+        breed: breedName,
+        count: imageFiles.length
+      };
+    });
+
+    const imageCounts = await Promise.all(imageCountsPerBreed);
+    res.json({ imageCounts });
+  } catch (error) {
+    console.error('Error fetching image counts per breed:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/api/dog-breeds', async (req, res) => {
+  try {
+    // Define the path to your image directory
+    const imagesDir = path.join(__dirname, '../', 'breed-dataset', 'images', 'Images');
+
+    // Read the subdirectories (breed names) in the images directory
+    const breedDirectories = await fs.promises.readdir(imagesDir);
+
+    // Remove any non-directory files (e.g., .DS_Store)
+    const validBreeds = breedDirectories.filter(breed => {
+      // const breedDirPath = path.join(imagesDir, breed);
+      // return fs.statSync(breedDirPath).isDirectory();
+    });
+
+    // Calculate the count of each dog breed
+    const breedCounts = {};
+    validBreeds.forEach(breed => {
+      breedCounts[breed] = (breedCounts[breed] || 0) + 1;
+    });
+
+    // Format the data for the response
+    const dogBreedsData = Object.keys(breedCounts).map(breed => ({
+      breed: breed,
+      count: breedCounts[breed]
+    }));
+
+    res.json({ dogBreeds: dogBreedsData });
+  } catch (error) {
+    console.error('Error fetching dog breeds:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 // Apollo Server setup
 const startApolloServer = async () => {
   await server.start();
@@ -763,42 +853,6 @@ const startApolloServer = async () => {
     })
   })
 };
-
-// Define a route handler for fetching image sizes
-app.get('/api/image-sizes', async (req, res) => {
-  try {
-    // Define the path to your image directory
-    const imagesDir = path.join(__dirname, '..', 'breed-dataset', 'images', 'Images');
-
-    // Read the subdirectories (breed names) in the images directory
-    const breedDirectories = await fs.readdir(imagesDir);
-
-    // Initialize an array to store image sizes
-    const imageSizes = [];
-
-    // Iterate over each breed directory
-    for (const breedDir of breedDirectories) {
-      const breedDirPath = path.join(imagesDir, breedDir);
-
-      // Read the list of image files in the breed directory
-      const imageFiles = await fs.readdir(breedDirPath);
-
-      // Get the size of each image file and add it to the imageSizes array
-      for (const imageFile of imageFiles) {
-        const imagePath = path.join(breedDirPath, imageFile);
-        const stats = await fs.stat(imagePath);
-        imageSizes.push(stats.size);
-      }
-    }
-
-    console.log('Image Sizes: ' + imageSizes);
-
-    res.json({ imageSizes });
-  } catch (error) {
-    console.error('Error fetching image sizes:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
 
 // Stripe checkout session creation route
 app.post('/create-checkout-session', async (req, res) => {
@@ -820,6 +874,11 @@ app.post('/create-checkout-session', async (req, res) => {
   });
 
   res.redirect(303, session.url);
+});
+
+// Serve the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 startApolloServer();
