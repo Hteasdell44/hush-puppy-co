@@ -2,8 +2,8 @@
     
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    min-height: fit-content;
+    height: fit-content;
+    min-height: 100vh;
     text-align: center;
   }
   
@@ -19,4 +19,50 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 3vh;
+}
+
+#upload-box button {
+    margin-top: 2vh;
+    border-radius: 10px;
+}
+
+#explore-button {
+    border-radius: 10px;
+    margin-bottom: 3vh;
+}
+
+canvas {
+    margin-bottom: 3vh;
+}
+
+button {
+    background-color: #52B6FF;
+    color: white;
+    width: 30vw;
+    box-shadow: 5px 5px 5px gray;
+    padding: 1vh;
+    border-radius: 10px;
+}
+
+.correction-button {
+    border-radius: 10px;
+}
+
+.correction-button:hover {
+    scale: 1.025;
+}
+
+#correction-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+}
+
+#correct-breed-button {
+    margin-left: 3vw;
+}
+
+button:hover {
+    scale: 1.025;
 }

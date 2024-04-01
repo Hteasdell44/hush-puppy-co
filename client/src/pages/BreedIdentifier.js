@@ -20,6 +20,11 @@ const BreedIdentifier = () => {
   const [imageSizes, setImageSizes] = useState([]);
   const [imageCounts, setImageCounts] = useState([]);
   const [dogBreeds, setDogBreeds] = useState([]);
+  const [imageSizesChart, setImageSizesChart] = useState(null);
+  const [imageCountsChart, setImageCountsChart] = useState(null);
+  const [breedPieChart, setBreedPieChart] = useState(null);
+  const [imageColors, setImageColors] = useState([]);
+  const [colorPieChart, setColorPieChart] = useState(null); // Added this line
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -67,12 +72,10 @@ const BreedIdentifier = () => {
 
   const handleCorrection = async () => {
 
-    console.log('entering!')
     try {
       setLoading(true);
       const response = await axios.post('/api/correct-breed', { breed: selectedBreed });
       setBreed(response.data.correctedBreed);
-      console.log(response.data)
       setRecommendation(response.data.correctedRecommendation.recommendation);
       setProductRecommendation(response.data.correctedRecommendation.productRecommendation);
       setProductRecommendationPrice(response.data.correctedRecommendation.productRecommendationPrice);
@@ -85,182 +88,217 @@ const BreedIdentifier = () => {
     }
   };
 
-    // Preprocess the image before sending to the backend
-    const preprocessImage = async (file) => {
-      // Resize the image to fit MobileNet's input size (224x224)
-      const image = await resizeImage(file, 224, 224);
-  
-      // Convert the image to base64 format
-      const reader = new FileReader();
-      reader.readAsDataURL(image);
-      return new Promise((resolve, reject) => {
-        reader.onloadend = () => {
-          resolve(reader.result);
-        };
-        reader.onerror = reject;
-      });
-    };
-  
-    // Resize the image to the specified dimensions
-    const resizeImage = (file, width, height) => {
-      return new Promise((resolve) => {
-        const img = document.createElement('img');
-        img.src = URL.createObjectURL(file);
-        img.onload = () => {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = width;
-          canvas.height = height;
-          ctx.drawImage(img, 0, 0, width, height);
-          canvas.toBlob((blob) => {
-            resolve(new File([blob], file.name, { type: 'image/jpeg' }));
-          }, 'image/jpeg');
-        };
-      });
-    };
+  // Preprocess the image before sending to the backend
+  const preprocessImage = async (file) => {
+    // Resize the image to fit MobileNet's input size (224x224)
+    const image = await resizeImage(file, 224, 224);
 
-    const plotHistogram = (data) => {
-        const ctx = document.getElementById('imageSizesHistogram');
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: data.map((size, index) => `Image ${index + 1}`),
-            datasets: [{
-              label: 'Image Sizes',
-              data: data,
-              backgroundColor: 'rgba(54, 162, 235, 0.2)',
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1
-            }]
+    // Convert the image to base64 format
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    return new Promise((resolve, reject) => {
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+    });
+  };
+
+  // Resize the image to the specified dimensions
+  const resizeImage = (file, width, height) => {
+    return new Promise((resolve) => {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+        }, 'image/jpeg');
+      };
+    });
+  };
+
+  const plotHistogram = (data) => {
+    const ctx = document.createElement('canvas');
+    ctx.id = 'imageSizesHistogram';
+    document.getElementById('imageSizesHistogramContainer').appendChild(ctx);
+
+    console.log(data)
+    setImageSizesChart(new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.map((data) => data.breed.split('-')[1].replace(/_/g, ' ')),
+        datasets: [{
+          label: 'Image Sizes',
+          data: data.map((data) => data.averageSize),
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            title: {
+              display: true,
+              text: 'Image Size (Bytes)'
+            }
           },
-          options: {
-            scales: {
-              y: {
-                title: {
-                  display: true,
-                  text: 'Image Size (bytes)'
-                }
-              },
-              x: {
-                title: {
-                  display: true,
-                  text: 'Image Number'
-                }
-              }
+          x: {
+            title: {
+              display: true,
+              text: 'Dog Breeds'
             }
           }
-        });
-      };
+        }
+      }
+    }));
+  };
 
-        const plotBarChart = (imageCounts) => {
-            const labels = imageCounts.map(data => data.breed);
-            const data = imageCounts.map(data => data.count);
-        
-            const ctx = document.getElementById('image-count-chart');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Number of Images',
-                        data: data,
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    indexAxis: 'y', // Change axis to y-axis for better visualization
-                    scales: {
-                        y: {
-                            stacked: true,
-                            title: {
-                                display: true,
-                                text: 'Dog Breeds'
-                            }
-                        },
-                        x: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Number of Images'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `Number of Images: ${context.raw}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        };
+  const plotBarChart = (imageCounts) => {
+    const ctx = document.createElement('canvas');
+    ctx.id = 'image-count-chart';
+    document.getElementById('imageCountChartContainer').appendChild(ctx);
+    setImageCountsChart(new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: imageCounts.map(data => data.breed),
+        datasets: [{
+          label: 'Number of Images',
+          data: imageCounts.map(data => data.count),
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        indexAxis: 'y', // Change axis to y-axis for better visualization
+        scales: {
+          y: {
+            stacked: true,
+            title: {
+              display: true,
+              text: 'Dog Breeds'
+            }
+          },
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Number of Images'
+            }
+          }
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              
+            }
+          }
+        }
+      }
+    }));
+  };
 
-        const plotPieChart = (breedsData) => {
-            const breedLabels = breedsData.map(breedData => breedData.breed);
-            const breedCountsData = breedsData.map(breedData => breedData.count);
-        
-            const ctx = document.getElementById('breedPieChart');
-            new Chart(ctx, {
-              type: 'pie',
-              data: {
-                labels: breedLabels,
-                datasets: [{
-                  label: 'Dog Breeds',
-                  data: breedCountsData,
-                  backgroundColor: [
-                    'rgba(255, 99, 132, 0.5)',
-                    'rgba(54, 162, 235, 0.5)',
-                    'rgba(255, 206, 86, 0.5)',
-                    'rgba(75, 192, 192, 0.5)',
-                    // Add more colors as needed
-                  ],
-                  hoverOffset: 4
-                }]
-              }
-            });
-        };
+  const plotPieChart = (breedsData) => {
+    const ctx = document.createElement('canvas');
+    ctx.id = 'breedPieChart';
+    document.getElementById('breedPieChartContainer').appendChild(ctx);
 
-    useEffect(() => {
-      // Fetch image sizes from the server
-        axios.get('/api/image-sizes')
-            .then(response => {
-            
-            setImageSizes(response.data.imageSizes);
-            plotHistogram(imageSizes);
-            })
-            .catch(error => {
-            console.error('Error fetching image sizes:', error);
-        });
+    // Generate a dynamic color palette
+    const colorPalette = generateColorPalette(breedsData.length);
 
-        axios.get('/api/image-count-per-breed')
-            .then(response => {
-                setImageCounts(response.data.imageCounts);
-                plotBarChart(response.data.imageCounts);
-            })
-            .catch(error => {
-                console.error('Error fetching image counts per breed:', error);
-        });
+    setBreedPieChart(new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: breedsData.map(breedData => breedData.breed),
+            datasets: [{
+                label: 'Dog Breeds',
+                data: breedsData.map(breedData => breedData.count),
+                backgroundColor: colorPalette,
+                hoverOffset: 4
+            }]
+        }
+    }));
+};
 
-        axios.get('/api/dog-breeds')
-            .then(response => {
-                setDogBreeds(response.data.dogBreeds);
-                plotPieChart(response.data.dogBreeds);
-            })
-            .catch(error => {
-                console.error('Error fetching dog breeds:', error);
-        });
+// Function to generate a dynamic color palette
+const generateColorPalette = (numColors) => {
+    const colorPalette = [];
+    for (let i = 0; i < numColors; i++) {
+        const hue = (i * 137.508) % 360; // Generate a hue value
+        const saturation = 90; // Set saturation to a fixed value
+        const lightness = 60; // Set lightness to a fixed value
+        const color = `hsl(${hue},${saturation}%,${lightness}%)`; // Create color in HSL format
+        colorPalette.push(color);
+    }
+    return colorPalette;
+};
 
-    }, []); 
-  
+
+  const plotCharts = () => {
+    axios.get('/api/image-sizes')
+      .then(response => {
+        setImageSizes(response.data.breedAverageSizes);
+        plotHistogram(response.data.breedAverageSizes);
+      })
+      .catch(error => {
+        console.error('Error fetching image sizes:', error);
+      });
+    
+    axios.get('/api/image-count-per-breed')
+      .then(response => {
+        setImageCounts(response.data.imageCounts);
+        plotBarChart(response.data.imageCounts);
+      })
+      .catch(error => {
+        console.error('Error fetching image counts per breed:', error);
+      });
+
+    // Fetch dog breeds
+    axios.get('/api/dog-breeds')
+      .then(response => {
+        setDogBreeds(response.data.dogBreeds);
+        plotPieChart(response.data.dogBreeds);
+      })
+      .catch(error => {
+        console.error('Error fetching dog breeds:', error);
+      });
+  }
+
+  const clearCharts = () => {
+    if (imageSizesChart) {
+      imageSizesChart.destroy();
+      setImageSizesChart(null);
+      const imageSizesCanvas = document.getElementById('imageSizesHistogram');
+      imageSizesCanvas.remove();
+    }
+    if (imageCountsChart) {
+      imageCountsChart.destroy();
+      setImageCountsChart(null);
+      const imageCountsCanvas = document.getElementById('image-count-chart');
+      imageCountsCanvas.remove();
+    }
+    if (breedPieChart) {
+      breedPieChart.destroy();
+      setBreedPieChart(null);
+      const breedPieCanvas = document.getElementById('breedPieChart');
+      breedPieCanvas.remove();
+    }
+    if (colorPieChart) { // Added this condition
+      colorPieChart.destroy();
+      setColorPieChart(null);
+      const colorPieCanvas = document.getElementById('colorPieChart');
+      colorPieCanvas.remove();
+    }
+  };
 
   return (
     <div id="breed-identifier-container">
-
       <h2>Breed Identifier</h2>
 
       <div id='upload-box'>
@@ -271,78 +309,78 @@ const BreedIdentifier = () => {
       {loading && <p>Loading...</p>}
 
       {!loading && breed && (
-
         <div>
           <h2>Predicted Breed: {breed}</h2>
           <p>Confidence: {confidence}</p>
         </div>
-
       )}
 
-        {showCorrectionQuestion && (
+      {showCorrectionQuestion && (
+        <>
+          <div id='correction-button-container'>
+            <button className='correction-button' onClick={handleYes}>Yes</button>
+            <button className='correction-button' onClick={handleNo}>No</button>
+          </div>
+        </>
+      )}
 
-            <>
-              <button onClick={handleYes}>Yes</button>
-              <button onClick={handleNo}>No</button>
-            </>
+      {correctRecommendation && (
+        <>
+          <p>Recommendation: {recommendation}</p>
+          <h3>We Recommend The:</h3>
+          <p>{productRecommendation}</p>
+          <p>${productRecommendationPrice}</p>
+        </>
+      )}
 
-        )}
+      {showCorrectionList && (
+        <>
+          <select onChange={(e) => setSelectedBreed(e.target.value)}>
+            <option value="">Select Correct Breed</option>
+            {allBreeds.map((breedOption, index) => (
+              <option key={index} value={breedOption}>{breedOption}</option>
+            ))}
+            <option>Not Listed</option>
+          </select>
+          <button id='correct-breed-button' className='correction-button' onClick={handleCorrection}>Correct Breed</button>
+        </>
+      )}
 
+      {!showCorrectionQuestion && !showCorrectionList && (
+        <button id='explore-button' onClick={() => { 
+          setShowDatasetSummary(!showDatasetSummary); 
+          if (showDatasetSummary) {
+            clearCharts();
+          } else {
+            plotCharts();
+          }
+        }}>Explore Dataset</button>
+      )}
 
-        {correctRecommendation && (
+      {showDatasetSummary && (
+        <div>
+          <div>
+            <h3>Dataset Summary</h3>
+            <p>Total records: 20,580</p>
+            <p>Unique breeds: 120</p>
+          </div>
 
-            <>
-                <p>Recommendation: {recommendation}</p>
-                <h3>We Recommend The:</h3>
-                <p>{productRecommendation}</p>
-                <p>{productRecommendationPrice}</p>
-            </>
+          <div id="imageCountChartContainer">
+            <h3>Image Count By Breed</h3>
+          </div>
 
-        )}
+          <div id="breedPieChartContainer">
+            <h3>Dog Breed Distribution</h3>
+          </div>
 
-        {showCorrectionList && (
-            <>
-                <select onChange={(e) => setSelectedBreed(e.target.value)}>
-                    <option value="">Select Correct Breed</option>
-                    {allBreeds.map((breedOption, index) => (
-                        <option key={index} value={breedOption}>{breedOption}</option>
-                    ))}
-                    <option>Not Listed</option>
-                </select>
-                <button onClick={handleCorrection}>Correct Breed</button>
-            </>
-        )}
-
-        {!showCorrectionQuestion && !showCorrectionList && (<button onClick={() => setShowDatasetSummary(!showDatasetSummary)}>Explore Dataset</button>)}
-
-        {showDatasetSummary && (
-            <div>
-                <div>
-                    <h3>Dataset Summary</h3>
-                    <p>Total records: 20,580</p>
-                    <p>Unique breeds: 103</p>
-                </div>
-
-                <div>
-                    <h3>Distribution of Image Sizes</h3>
-                    {/* <canvas id="imageSizesHistogram"></canvas> */}
-                </div>
-
-                <div>
-                    <h3>Image Count By Breed</h3>
-                    <canvas id="image-count-chart"></canvas>
-                </div>
-
-                <div>
-                    <h3>Dog Breed Distribution</h3>
-                    {/* <canvas id="breedPieChart"></canvas> */}
-                </div>
-
-            </div>
-        )}
+          <div id="imageSizesHistogramContainer">
+            <h3>Average Image Size By Breed</h3>
+          </div>
 
         </div>
-
-)};
+      )}
+    </div>
+  );
+};
 
 export default BreedIdentifier;

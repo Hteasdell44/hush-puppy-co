@@ -52,16 +52,6 @@ const datasetPath = path.join(__dirname, '../breed-dataset', 'images', 'Images')
 // Extract the list of dog breeds from the dataset
 const dogBreeds = extractDogBreeds(datasetPath);
 
-// Print the list of dog breeds
-/**
- 
-console.log('List of Dog Breeds:');
-for (i = 0; i < dogBreeds.length; i++) {
-  console.log(dogBreeds[i]);
-}
-
-*/
-
 // Function to format breed names
 function formatBreedName(breedName) {
     // Remove underscores and capitalize first letter of each word
@@ -658,17 +648,17 @@ function provideDecisionSupport(breed) {
       },
       'Dingo': {
           description: 'Dingoes are wild canines native to Australia, known for their intelligence and adaptability. They are independent animals that require vast amounts of space to roam and thrive. Dingoes are not typically kept as pets due to their wild nature.',
-          product: 'Wilderness Adventure Kit',
+          product: 'Calm Treats',
           price: 149.99
       },
       'Dhole': {
           description: 'Dholes, also known as Asian wild dogs, are highly social animals native to Asia. They live and hunt cooperatively in packs and are known for their agility and endurance. Dholes are not typically kept as pets and require specialized care due to their wild nature.',
-          product: 'Wilderness Adventure Kit',
+          product: 'Calm Treats',
           price: 149.99
       },
       'African Hunting Dog': {
           description: 'African Hunting Dogs, also known as African wild dogs or painted wolves, are highly social and efficient hunters native to sub-Saharan Africa. They live and hunt cooperatively in packs and are known for their stamina and teamwork. African Hunting Dogs are not typically kept as pets and require specialized care due to their wild nature.',
-          product: 'Wilderness Adventure Kit',
+          product: 'Calm Treats',
           price: 149.99
       }
   };
@@ -686,23 +676,33 @@ function provideDecisionSupport(breed) {
 }
 
 async function predictBreed(imageData) {
-  // Load the MobileNet model
-  const model = await mobilenet.load();
+  try {
+    // Load the MobileNet model
+    const model = await mobilenet.load();
 
-  // Convert the image data to a TensorFlow tensor
-  const imageTensor = tf.node.decodeImage(imageData);
+    // Convert the image data to a TensorFlow tensor
+    const imageTensor = tf.node.decodeImage(imageData);
 
-  // Perform prediction
-  const predictions = await model.classify(imageTensor);
+    // Resize the image to match the input shape of MobileNet (224x224)
+    const resizedImage = tf.image.resizeBilinear(imageTensor, [224, 224]);
 
-  // Get the top prediction
-  const topPrediction = predictions[0];
-  const breed = formatBreedName(topPrediction.className);
-  const confidence = topPrediction.probability;
+    // Perform prediction
+    const predictions = await model.classify(resizedImage);
 
-  return { breed, confidence };
-  
+    // Get the top prediction
+    const topPrediction = predictions[0];
+    const breed = formatBreedName(topPrediction.className);
+    const confidence = topPrediction.probability;
+
+    return { breed, confidence };
+  } catch (error) {
+    console.error('Error predicting:', error);
+    throw error;
+  }
 }
+
+
+
 
 // Route handler
 app.post('/api/predict', upload.single('image'), async (req, res) => {
@@ -750,38 +750,37 @@ app.post('/api/correct-breed', async (req, res) => {
 // Define a route handler for fetching image sizes
 app.get('/api/image-sizes', async (req, res) => {
   try {
-    // Define the path to your image directory
     const imagesDir = path.join(__dirname, '..', 'breed-dataset', 'images', 'Images');
-
-    // Read the subdirectories (breed names) in the images directory
     const breedDirectories = await fs.promises.readdir(imagesDir);
+    breedDirectories.shift(); // Remove .DS_Store
 
-    // Remove the .DS_Store file stored first in the array.
-    breedDirectories.shift();
+    const breedAverageSizes = [];
 
-    // Initialize an array to store image sizes
-    const imageSizes = [];
-
-    // Iterate over each breed directory
     for (const breedDir of breedDirectories) {
       const breedDirPath = path.join(imagesDir, breedDir);
-
-      // Read the list of image files in the breed directory
       const imageFiles = await fs.promises.readdir(breedDirPath);
 
-      // Get the size of each image file and add it to the imageSizes array
+      let totalSize = 0;
+      let totalCount = 0;
+
       for (const imageFile of imageFiles) {
         const imagePath = path.join(breedDirPath, imageFile);
         const stats = await fs.promises.stat(imagePath);
-        imageSizes.push(stats.size);
+        totalSize += stats.size;
+        totalCount++;
       }
+
+      const averageSize = totalSize / totalCount;
+      breedAverageSizes.push({ breed: breedDir, averageSize: averageSize });
     }
-    res.json({imageSizes});
+
+    res.json({ breedAverageSizes });
   } catch (error) {
-    console.error('Error fetching image sizes:', error);
+    console.error('Error fetching average image sizes:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 
 app.get('/api/image-count-per-breed', async (req, res) => {
   try {
@@ -817,8 +816,8 @@ app.get('/api/dog-breeds', async (req, res) => {
 
     // Remove any non-directory files (e.g., .DS_Store)
     const validBreeds = breedDirectories.filter(breed => {
-      // const breedDirPath = path.join(imagesDir, breed);
-      // return fs.statSync(breedDirPath).isDirectory();
+      const breedDirPath = path.join(imagesDir, breed);
+      return fs.statSync(breedDirPath).isDirectory();
     });
 
     // Calculate the count of each dog breed
@@ -829,7 +828,7 @@ app.get('/api/dog-breeds', async (req, res) => {
 
     // Format the data for the response
     const dogBreedsData = Object.keys(breedCounts).map(breed => ({
-      breed: breed,
+      breed: breed.split('-')[1].replace(/_/g, ' '),
       count: breedCounts[breed]
     }));
 
