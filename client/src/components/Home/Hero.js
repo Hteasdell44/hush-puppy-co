@@ -2,7 +2,7 @@ export default function Hero() {
 
   return (
 
-    <div>
+    <div style={{width: 100 + 'vw' }}>
 
         <div id="hero-container" class="p-5 text-center d-flex align-items-center justify-content-center">
           <div class="mask">
